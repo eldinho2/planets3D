@@ -23,6 +23,11 @@ const Wrapper = styled.div<WrapperProps>`
 
 export default function Home() {
   const [isGrabbing, setIsGrabbing] = useState<boolean>(false);
+  const [isloading, setIsLoading] = useState<boolean>(true);
+
+  setTimeout(() => {
+    setIsLoading(false);
+  }, 5000);
 
   const handlePageClick = () => {
     setIsGrabbing(!isGrabbing);
@@ -30,7 +35,10 @@ export default function Home() {
 
   return (
     <Wrapper grabbing={isGrabbing}>
-      <Canvas
+      {isloading ? (
+          <h1>Carregando...</h1>
+      ) : (
+        <Canvas
         camera={{ position: [30, 10, 10], fov: 60 }}
         className={'canvas'}
         onPointerDown={handlePageClick}
@@ -47,6 +55,7 @@ export default function Home() {
           </Center>
         </Suspense>
       </Canvas>
+      )}
     </Wrapper>
   );
 }
