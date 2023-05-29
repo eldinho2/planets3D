@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main>
       <Canvas>
-        <OrbitControls enableZoom={false}/>
+        <OrbitControls enableZoom={true}/>
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
         <Suspense>
