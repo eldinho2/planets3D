@@ -1,5 +1,5 @@
-const planets = [
-  earth = {
+export const planets = [
+  terra = {
     name: "Terra",
     description: "Nosso planeta natal",
     distances: [
@@ -12,7 +12,7 @@ const planets = [
     ],
     terrentype: "Terreno diversificado"
   },
-  mars = {
+  marte = {
     name: "Marte",
     description: "O quarto planeta a partir do Sol",
     distances: [
@@ -38,7 +38,7 @@ const planets = [
     ],
     terrentype: "Gás, tempestades"
   },
-  saturn = {
+  saturno = {
     name: "Saturno",
     description: "O segundo maior planeta do Sistema Solar",
     distances: [
@@ -51,7 +51,7 @@ const planets = [
     ],
     terrentype: "Gás, anéis"
   },
-  uranus = {
+  urano = {
     name: "Urano",
     description: "O sétimo planeta a partir do Sol",
     distances: [
@@ -64,7 +64,7 @@ const planets = [
     ],
     terrentype: "Gás, gelo"
   },
-  neptune = {
+  netuno = {
     name: "Netuno",
     description: "O oitavo e último planeta do Sistema Solar",
     distances: [
@@ -77,7 +77,7 @@ const planets = [
     ],
     terrentype: "Gás, tempestades"
   },
-  mercury = {
+  mercurio = {
     name: "Mercúrio",
     description: "O planeta mais próximo do Sol",
     distances: [
@@ -103,7 +103,7 @@ const planets = [
     ],
     terrentype: "Terreno vulcânico"
   },
-  sun = {
+  sol = {
     name: "Sol",
     description: "Nossa estrela central",
     distances: [
@@ -116,7 +116,7 @@ const planets = [
     ],
     terrentype: "N/A (estrela)"
   },
-  moon = {
+  lua = {
     name: "Lua",
     description: "Nosso satélite natural",
     distances: [

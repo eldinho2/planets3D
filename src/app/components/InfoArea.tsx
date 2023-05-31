@@ -4,7 +4,7 @@ import styled from 'styled-components'
 interface InfoProps {
   name: string
   description: string
-  distances: string[]
+  distances?: string[]
 }
 
 const InfoAreaWrapper = styled.div`
@@ -39,7 +39,7 @@ function InfoArea({ name, description, distances}: InfoProps) {
       <h1>{name}</h1>
       <p>{description}</p>
       <InfoDistance>
-        {distances.map((distance) => (
+        {distances?.map((distance) => (
           <div key={distance}>
             <p>{distance}</p>
           </div>
