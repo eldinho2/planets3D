@@ -108,7 +108,7 @@ export const planets = [
   },
   {
     name: "Sol",
-    description: "Nossa estrela central",
+    description: "O Sol é uma estrela de tamanho médio localizada no centro do sistema solar. É uma gigantesca esfera de gás quente composta principalmente de hidrogênio e hélio. O Sol é uma das estrelas mais brilhantes do nosso céu. Sua temperatura na fotosfera é de cerca de 5.500 °C. No entanto, na coroa, a temperatura pode chegar a vários milhões de graus Celsius. O Sol possui várias camadas distintas. A parte visível é conhecida como fotosfera, e acima dela estão a cromosfera e a coroa solar. Reações nucleares: No núcleo do Sol, ocorrem reações nucleares de fusão, nas quais o hidrogênio é convertido em hélio. Essas reações liberam uma enorme quantidade de energia na forma de luz e calor.",
     distances: [
       {
         distanciaApartirdaTerra: "",
@@ -121,7 +121,7 @@ export const planets = [
   },
   {
     name: "Lua",
-    description: "Nosso satélite natural",
+    description: "A Lua é o único satélite natural da Terra. É um corpo celeste rochoso que orbita em torno do nosso planeta. A Lua é o objeto mais brilhante no céu noturno, depois do Sol. A atração gravitacional da Lua sobre a Terra é responsável pela formação das marés oceânicas. A Lua exerce uma força que causa um leve aumento no nível das águas. Acredita-se que a Lua tenha se formado a partir do impacto de um objeto do tamanho de Marte com a Terra primitiva, há cerca de 4,5 bilhões de anos. Esse impacto resultou na ejeção de detritos que se juntaram para formar a Lua.",
     distances: [
       {
         distanciaApartirdaTerra: '384,400',

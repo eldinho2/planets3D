@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import PlanetSelector from "./PlanetSelector";
 import InfoArea from "./InfoArea";
+import { Sol } from "./planets/Sol";
 import { Mercurio } from "./planets/Mercurio";
 import { Venus } from "./planets/Venus";
 import { Terra } from "./planets/Terra";
@@ -38,6 +39,7 @@ export const PlanetInfo = ({ planet }: PlanetInfoProps) => {
   const planetFormated = planet.split("/").join("");
   
   const planetComponents: PlanetComponents = {
+    sol: <Sol />,
     mercurio: <Mercurio />,
     venus: <Venus />,
     terra: <Terra />,

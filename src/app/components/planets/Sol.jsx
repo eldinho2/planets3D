@@ -43,7 +43,7 @@ const SolModel = (props) => {
 
 export const Sol = () => {
   return (
-    <Canvas camera={{ position: [2, 2, 2], fov: 60 }} className={"canvas"}>
+    <Canvas camera={{ position: [5, 2, 5], fov: 60 }} className={"canvas"}>
     <Suspense fallback={<Loader />}>
       <OrbitControls
         enableRotate={false}
@@ -52,8 +52,8 @@ export const Sol = () => {
         autoRotate
         autoRotateSpeed={0.3}
       />
-      <ambientLight intensity={0.2} />
-      <Sparkles count={1000} scale={1111 * 2} size={1} speed={0.4}>
+      <ambientLight intensity={1.2} />
+      <Sparkles count={5000} scale={1111 * 2} size={1} speed={0.4}>
           <SolModel />
       </Sparkles>
     </Suspense>

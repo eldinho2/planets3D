@@ -40,17 +40,17 @@ const  MercurioModel = (props) => {
 
 export const Mercurio = () => {
   return (
-    <Canvas camera={{ position: [112, 211, 110], fov: 60 }} className={"canvas"}>
+    <Canvas camera={{ position: [250, 130, 250], fov: 60 }} className={"canvas"}>
     <Suspense fallback={<Loader />}>
       <OrbitControls
-        enableRotate={false}
+        enableRotate={true}
         enablePan={false}
         enableZoom={false}
         autoRotate
         autoRotateSpeed={0.3}
       />
       <ambientLight intensity={0.2} />
-      <Sparkles count={1000} scale={1111 * 2} size={1} speed={0.4}>
+      <Sparkles count={5000} scale={1111 * 2} size={1} speed={0.4}>
           <MercurioModel />
       </Sparkles>
     </Suspense>

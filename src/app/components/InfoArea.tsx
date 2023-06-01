@@ -72,19 +72,19 @@ function InfoArea({ name, description, distances, terrentype }: InfoProps) {
           <div className="distances" key={index}>
               <div>
                 <h2>Distancia Media a partir da Terra</h2>
-                <p>{distance.distanciaApartirdaTerra}</p>
+                <p>{distance.distanciaApartirdaTerra ? distance.distanciaApartirdaTerra : 'N/A'}</p>
               </div>
               <div>
                 <h2>Distancia Media a partir do Sol</h2>
-                <p>{distance.distanciaApartirDoSol}</p>
+                <p>{distance.distanciaApartirDoSol ? distance.distanciaApartirDoSol : 'N/A'}</p>
               </div>
               <div>
                 <h2>Tempo de Viagem</h2>
-                <p>{distance.tempoDeViagem}</p>
+                <p>{distance.tempoDeViagem ? distance.tempoDeViagem : 'N/A'}</p>
               </div>
               <div>
                 <h2>Diametro</h2>
-                <p>{distance.diametro}</p>
+                <p>{distance.diametro ? distance.diametro : 'N/A'}</p>
               </div>
               <div>
                 <h2>Tipo de Terreno</h2>

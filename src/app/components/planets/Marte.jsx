@@ -56,7 +56,7 @@ export const Marte = () => {
         autoRotateSpeed={0.3}
       />
       <ambientLight intensity={0.2} />
-      <Sparkles count={1000} scale={1111 * 2} size={1} speed={0.4}>
+      <Sparkles count={5000} scale={1111 * 2} size={1} speed={0.4}>
           <MarteModel />
       </Sparkles>
     </Suspense>

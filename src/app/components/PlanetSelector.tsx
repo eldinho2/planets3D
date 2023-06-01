@@ -58,6 +58,9 @@ function PlanetSelector() {
   return (
     <PlanetSelectorWrapper>
       <ul>
+        <Link href="/sol">
+          <li>Sol</li>
+        </Link>
         <Link href="/mercurio">
           <li>Mercúrio</li>
         </Link>
