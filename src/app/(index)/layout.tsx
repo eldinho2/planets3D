@@ -1,17 +1,9 @@
 import "@/app/globals.css";
-import { Inter } from "next/font/google";
-import { Bellefair } from "next/font/google";
+import { Barlow_Semi_Condensed } from 'next/font/google';
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-inter",
-});
-
-const bellefair = Bellefair({
-  weight: ["400"],
-  subsets: ["latin"],
-  variable: "--font-bellefair",
+const barlow_Semi_Condensed = Barlow_Semi_Condensed({
+  weight: ['300', '400', '600', '700'],
+  subsets: ['latin'],
 });
 
 export const metadata = {
@@ -26,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
-      <body className={`${bellefair.variable} ${inter.variable}`}>
+      <body className={barlow_Semi_Condensed.className}>
         {children}
       </body>
     </html>

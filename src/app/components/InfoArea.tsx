@@ -1,21 +1,33 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 interface InfoProps {
-  name: string
-  description: string
-  distances?: string[]
+  name?: string;
+  description?: string;
+  distances?: {
+    distanciaApartirdaTerra: string;
+    tempoDeViagem: string;
+    distanciaApartirDoSol: string;
+    diametro: string;
+  }[];
+  terrentype?: string;
 }
 
 const InfoAreaWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  flex-direction: column;
+
   div {
-    font-family: var(--font-bellefair);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-left: 2rem;
     background: transparent;
+    max-width: 60rem;
     width: 60rem;
   }
 
@@ -23,30 +35,66 @@ const InfoAreaWrapper = styled.div`
     font-size: 10rem;
   }
 
-  p {
+  .description {
     color: #a1a4b7;
     font-size: 1.2rem;
+    text-align: center;
+    max-width: 30rem;
+    margin-bottom: 2rem;
   }
 `;
 
 const InfoDistance = styled.div`
-  display: flex;
+  .distances {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 1rem;
+    max-width: 50rem;
+  }
+
+  .distances div h2 {
+    font-size: 1rem;
+  }
+
+
+  border-top: 1px solid #a1a4b7;
 `;
 
-function InfoArea({ name, description, distances}: InfoProps) {
+function InfoArea({ name, description, distances, terrentype }: InfoProps) {
   return (
     <InfoAreaWrapper>
       <h1>{name}</h1>
-      <p>{description}</p>
+      <p className="description">{description}</p>
       <InfoDistance>
-        {distances?.map((distance) => (
-          <div key={distance}>
-            <p>{distance}</p>
+        {distances?.map((distance, index) => (
+          <div className="distances" key={index}>
+              <div>
+                <h2>Distancia Media a partir da Terra</h2>
+                <p>{distance.distanciaApartirdaTerra}</p>
+              </div>
+              <div>
+                <h2>Distancia Media a partir do Sol</h2>
+                <p>{distance.distanciaApartirDoSol}</p>
+              </div>
+              <div>
+                <h2>Tempo de Viagem</h2>
+                <p>{distance.tempoDeViagem}</p>
+              </div>
+              <div>
+                <h2>Diametro</h2>
+                <p>{distance.diametro}</p>
+              </div>
+              <div>
+                <h2>Tipo de Terreno</h2>
+                <p className="terrenType">{terrentype}</p>
+              </div>
           </div>
         ))}
       </InfoDistance>
     </InfoAreaWrapper>
-  )
+  );
 }
 
 export default InfoArea;

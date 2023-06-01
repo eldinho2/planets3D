@@ -22,64 +22,69 @@ function Loader() {
 }
 
 const UranoModel = (props) => {
-  const group = useRef();
-  const { nodes, materials } = useGLTF("/uranus.glb");
+  const { nodes, materials } = useGLTF("/uranodraco.gltf");
   return (
-    <group ref={group} {...props} dispose={null}>
-      <group name="Sketchfab_Scene">
-        <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
-          <group
-            name="f029815b00e641df84e4fa9461089ab2fbx"
-            rotation={[Math.PI / 2, 0, 0]}
-            scale={0.01}
-          >
-            <group name="Object_2">
-              <group name="RootNode">
-                <group
-                  name="uranus"
-                  position={[-1312.79, 0.01, 1294443.88]}
-                  rotation={[-0.82, 1.18, 0.87]}
-                  scale={1000}
-                >
-                  <group name="rings">
-                    <mesh
-                      name="rings_lambert3_0"
-                      castShadow
-                      receiveShadow
-                      geometry={nodes.rings_lambert3_0.geometry}
-                      material={materials.lambert3}
-                    />
-                    <mesh
-                      name="rings_lambert4_0"
-                      castShadow
-                      receiveShadow
-                      geometry={nodes.rings_lambert4_0.geometry}
-                      material={materials.lambert4}
-                    />
-                    <mesh
-                      name="rings_lambert5_0"
-                      castShadow
-                      receiveShadow
-                      geometry={nodes.rings_lambert5_0.geometry}
-                      material={materials.lambert5}
-                    />
-                    <mesh
-                      name="rings_lambert2_0"
-                      castShadow
-                      receiveShadow
-                      geometry={nodes.rings_lambert2_0.geometry}
-                      material={materials.lambert2}
-                    />
-                  </group>
-                  <mesh
-                    name="uranus_uranus_shader_0"
-                    castShadow
-                    receiveShadow
-                    geometry={nodes.uranus_uranus_shader_0.geometry}
-                    material={materials.uranus_shader}
-                  />
-                </group>
-              </group>
+    <group {...props} dispose={null}>
+      <group rotation={[-Math.PI / 2, 0, 0]}>
+        <group rotation={[Math.PI / 2, 0, 0]}>
+          <group rotation={[-1.7, 0, 0]}>
+            <mesh
+              castShadow
+              receiveShadow
+              geometry={nodes.Esfera_Mat1_0.geometry}
+              material={materials["Mat.1"]}
+            />
+            <mesh
+              castShadow
+              receiveShadow
+              geometry={nodes.Esfera_Mat1_0_3.geometry}
+              material={materials["Mat.1"]}
+            />
+            <mesh
+              castShadow
+              receiveShadow
+              geometry={nodes.Esfera_Mat1_0_2.geometry}
+              material={materials["Mat.1"]}
+            />
+            <mesh
+              castShadow
+              receiveShadow
+              geometry={nodes.Esfera_Mat1_0_1.geometry}
+              material={materials["Mat.1"]}
+            />
+            <mesh
+              castShadow
+              receiveShadow
+              geometry={nodes.Esfera_Mat1_0_7.geometry}
+              material={materials["Mat.1"]}
+            />
+            <mesh
+              castShadow
+              receiveShadow
+              geometry={nodes.Esfera_Mat1_0_5.geometry}
+              material={materials["Mat.1"]}
+            />
+            <mesh
+              castShadow
+              receiveShadow
+              geometry={nodes.Esfera_Mat1_0_4.geometry}
+              material={materials["Mat.1"]}
+            />
+            <mesh
+              castShadow
+              receiveShadow
+              geometry={nodes.Esfera_Mat1_0_6.geometry}
+              material={materials["Mat.1"]}
+            />
+          </group>
+          <group rotation={[0.14, 0, 0]}>
+            <group position={[-450, 50, 0]} rotation={[-0.27, 0, 0]}>
+              <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.Plano_Mat_0.geometry}
+                material={materials.material}
+              />
             </group>
           </group>
         </group>
@@ -90,12 +95,22 @@ const UranoModel = (props) => {
 
 export const Urano = () => {
   return (
-    <Canvas camera={{ position: [2, 2, 2], fov: 60 }} className={"canvas"}>
-      <Sparkles count={1000} scale={1111 * 2} size={1} speed={0.4}>
+    <Canvas camera={{ position: [522, 2, 522], fov: 60 }} className={"canvas"}>
+      <Suspense fallback={<Loader />}>
+      <OrbitControls
+          enableRotate={true}
+          enablePan={true}
+          enableZoom={true}
+          autoRotate
+          autoRotateSpeed={0.3}
+        />
+        <ambientLight intensity={2.2} />
+        <Sparkles count={5000} scale={1111 * 2} size={1} speed={0.4}>
           <UranoModel />
       </Sparkles>
+      </Suspense>
   </Canvas>
   )
 }
 
-useGLTF.preload("/uranus.glb");
+useGLTF.preload("/uranodraco.gltf");

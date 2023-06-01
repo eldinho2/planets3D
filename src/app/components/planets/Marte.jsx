@@ -46,7 +46,7 @@ const MarteModel = (props) => {
 
 export const Marte = () => {
   return (
-    <Canvas camera={{ position: [2, 2, 2], fov: 60 }} className={"canvas"}>
+    <Canvas camera={{ position: [5, 2, 5], fov: 60 }} className={"canvas"}>
     <Suspense fallback={<Loader />}>
       <OrbitControls
         enableRotate={false}

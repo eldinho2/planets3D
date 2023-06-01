@@ -25,12 +25,12 @@ function Loader() {
 
 const JupiterModel = (props) => {
   const group = useRef()
-  const { nodes, materials } = useGLTF('/jupternew.glb')
+  const { nodes, materials } = useGLTF('/jupternew-transformed.glb')
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
         <primitive object={nodes.Armature_rootJoint} />
-        <skinnedMesh name="JUPITER_0" geometry={nodes.JUPITER_0.geometry} material={materials.JUPITER} skeleton={nodes.JUPITER_0.skeleton} rotation={[-Math.PI / 2, 2, 2]} scale={1.111} />
+        <skinnedMesh name="JUPITER_0" geometry={nodes.JUPITER_0.geometry} material={materials.JUPITER} skeleton={nodes.JUPITER_0.skeleton} scale={1} />
       </group>
     </group>
   )
@@ -38,12 +38,12 @@ const JupiterModel = (props) => {
 
 export const Jupiter = () => {
   return (
-    <Canvas camera={{ position: [2, 2, 2], fov: 60 }} className={"canvas"}>
+    <Canvas camera={{ position: [3.5, -0.3, 3.5], fov: 60 }} className={"canvas"}>
     <Suspense fallback={<Loader />}>
       <OrbitControls
-        enableRotate={false}
-        enablePan={false}
-        enableZoom={false}
+        enableRotate={true}
+        enablePan={true}
+        enableZoom={true}
         autoRotate
         autoRotateSpeed={0.3}
       />
@@ -56,4 +56,4 @@ export const Jupiter = () => {
   )
 }
 
-useGLTF.preload('/jupternew.glb')
+useGLTF.preload('/jupternew-transformed.glb')

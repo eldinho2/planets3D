@@ -5,8 +5,7 @@ license: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 source: https://sketchfab.com/3d-models/earth-globe-98d2b04d46474bafb4250cc75dc583b3
 title: Earth Globe 🌍
 */
-
-import React, { useRef, Suspense } from "react";
+import React, { Suspense } from "react";
 import {
   OrbitControls,
   Center,
@@ -21,30 +20,26 @@ function Loader() {
   const { progress } = useProgress();
   return <Html center>{progress.toFixed(2)} % loaded</Html>;
 }
-
 const TerraModel = (props) => {
   const { nodes, materials } = useGLTF("/terra-transformed.glb");
   return (
     <group {...props} dispose={null}>
       <mesh
-        castShadow
-        receiveShadow
+        receiveShadow={true}
         geometry={nodes.meshNode_Material_u2_v1_0.geometry}
         material={materials.Material_u2_v1}
         position={[-5.18, -20.68, 0]}
         rotation={[-Math.PI / 2, 0.46, Math.PI]}
       />
       <mesh
-        castShadow
-        receiveShadow
+        receiveShadow={true}
         geometry={nodes.meshNode_Material_u1_v1_0.geometry}
         material={materials.Material_u1_v1}
         position={[-5.18, -20.68, 0]}
         rotation={[-Math.PI / 2, 0.46, Math.PI]}
       />
       <mesh
-        castShadow
-        receiveShadow
+        receiveShadow={true}
         geometry={nodes.meshNode_Material_u1_v2_0.geometry}
         material={materials.Material_u1_v2}
         position={[-5.18, -20.68, 0]}
@@ -65,7 +60,6 @@ export const Terra = () => {
           autoRotate
           autoRotateSpeed={0.3}
         />
-        <ambientLight intensity={0.2} />
         <Sparkles count={5000} scale={1111 * 2} size={1} speed={0.4}>
           <Center>
             <TerraModel />

@@ -1,109 +1,112 @@
 export const planets = [
-  terra = {
+  {
     name: "Terra",
-    description: "Nosso planeta natal",
+    description: "A Terra é o terceiro planeta a partir do Sol e o único conhecido por abrigar vida. Possui uma atmosfera rica em nitrogênio e oxigênio. A Terra tem uma lua chamada Lua. É o único planeta onde são conhecidos mares, oceanos e vida abundante, incluindo uma grande variedade de seres vivos.",
     distances: [
       {
         distanciaApartirdaTerra: "",
         tempoDeViagem: "",
-        distanciaApartirDoSol: 149600000,
-        diametro: 12742,
-      }
+        distanciaApartirDoSol: '149,600,000',
+        diametro: '12,742',
+      },
     ],
-    terrentype: "Terreno diversificado"
+    terrentype: "Terreno diversificado",
   },
-  marte = {
+  {
     name: "Marte",
-    description: "O quarto planeta a partir do Sol",
+    description: "Marte, muitas vezes chamado de 'Planeta Vermelho', é o quarto planeta a partir do Sol. Possui uma fina atmosfera e características geológicas semelhantes às da Terra. Marte é o único planeta além da Terra onde foram identificados sinais de água líquida em seu passado. É alvo de várias missões espaciais de exploração em busca de evidências de vida microbiana passada ou presente.",
     distances: [
       {
-        distanciaApartirdaTerra: 78300000,
+        distanciaApartirdaTerra: '78,300,000',
         tempoDeViagem: "9 meses",
-        distanciaApartirDoSol: 227940000,
-        diametro: 6779,
-      }
+        distanciaApartirDoSol: '227,940,000',
+        diametro: '6,779',
+      },
     ],
-    terrentype: "Deserto, montanhas"
+    terrentype: "Deserto, montanhas",
   },
-  jupiter = {
-    name: "Júpiter",
-    description: "O maior planeta do Sistema Solar",
+  {
+    name: "Jupiter",
+    ptName: "Júpiter",
+    description: "Júpiter é o maior planeta do sistema solar e o quinto a partir do Sol. É conhecido por sua atmosfera gasosa e pela Grande Mancha Vermelha, uma tempestade gigante. Júpiter tem mais de 75 luas conhecidas, incluindo quatro luas grandes chamadas de luas galileanas: Io, Europa, Ganimedes e Calisto. Ele também tem um forte campo magnético e é frequentemente chamado de 'mini sistema solar' devido à sua composição semelhante a uma estrela fracassada.",
     distances: [
       {
-        distanciaApartirdaTerra: 628700000,
+        distanciaApartirdaTerra: '628,700,000',
         tempoDeViagem: "3 anos",
-        distanciaApartirDoSol: 778330000,
-        diametro: 139820,
-      }
+        distanciaApartirDoSol: '778,330,000',
+        diametro: '139,820',
+      },
     ],
-    terrentype: "Gás, tempestades"
+    terrentype: "Gás, tempestades",
   },
-  saturno = {
+  {
     name: "Saturno",
-    description: "O segundo maior planeta do Sistema Solar",
+    description: "Saturno é o sexto planeta a partir do Sol, conhecido por seus anéis impressionantes. É um gigante gasoso com uma densidade média menor que a da água. Os anéis de Saturno são compostos principalmente de partículas de gelo e variam em tamanho, desde partículas microscópicas até pedaços maiores. Saturno também tem muitas luas, sendo a maior delas chamada Titã, que possui uma atmosfera densa.",
     distances: [
       {
-        distanciaApartirdaTerra: 1275000000,
+        distanciaApartirdaTerra: '1,275,000,000',
         tempoDeViagem: "6 anos",
-        distanciaApartirDoSol: 1429400000,
-        diametro: 116460,
-      }
+        distanciaApartirDoSol: '1,429,400,000',
+        diametro: '116,460',
+      },
     ],
-    terrentype: "Gás, anéis"
+    terrentype: "Gás, anéis",
   },
-  urano = {
+  {
     name: "Urano",
-    description: "O sétimo planeta a partir do Sol",
+    description: "Urano é o sétimo planeta a partir do Sol e é caracterizado por sua coloração azul-esverdeada. É um gigante gasoso com um conjunto de anéis e uma inclinação axial extrema. Urano é único no sistema solar por sua inclinação axial quase que deitada de lado, o que significa que seus polos são quase paralelos à órbita do planeta. Além disso, é o único planeta que foi nomeado com base em uma figura da mitologia grega, em vez da mitologia romana.",
     distances: [
       {
-        distanciaApartirdaTerra: 2725000000,
+        distanciaApartirdaTerra: '2,725,000,000',
         tempoDeViagem: "13 anos",
-        distanciaApartirDoSol: 2871000000,
-        diametro: 50724,
-      }
+        distanciaApartirDoSol: '2,871,000,000',
+        diametro: '50,724',
+      },
     ],
-    terrentype: "Gás, gelo"
+    terrentype: "Gás, gelo",
   },
-  netuno = {
+{
     name: "Netuno",
-    description: "O oitavo e último planeta do Sistema Solar",
+    description: 'Netuno é o oitavo e último planeta a partir do Sol. É um gigante gasoso com uma atmosfera turbulenta e ventos extremamente fortes. Netuno é conhecido por sua cor azul profundo, que é resultado de metano em sua atmosfera. Ele possui a maior velocidade média de ventos em todo o sistema solar, chegando a até 2.100 km/h. Netuno também tem uma lua chamada Tritão, que é única por ter uma órbita retrógrada.',
     distances: [
       {
-        distanciaApartirdaTerra: 4350000000,
+        distanciaApartirdaTerra: '4,350,000,000',
         tempoDeViagem: "21 anos",
-        distanciaApartirDoSol: 4498300000,
-        diametro: 49244,
-      }
+        distanciaApartirDoSol: '4,498,300,000',
+        diametro: '49,244',
+      },
     ],
-    terrentype: "Gás, tempestades"
+    terrentype: "Gás, tempestades",
   },
-  mercurio = {
-    name: "Mercúrio",
-    description: "O planeta mais próximo do Sol",
+  {
+    name: "Mercurio",
+    ptName: "Mercúrio",
+    description: "Mercúrio é o planeta mais próximo do Sol e o menor do sistema solar. Possui uma superfície rochosa e crateras de impacto. Mercúrio tem uma órbita excêntrica, o que significa que sua distância do Sol varia significativamente. Além disso, é o planeta com a menor inclinação axial, resultando em uma falta de estações distintas.",
     distances: [
       {
-        distanciaApartirdaTerra: 77300000,
+        distanciaApartirdaTerra: '77,300,000',
         tempoDeViagem: "4 meses",
-        distanciaApartirDoSol: 57910000,
-        diametro: 4879,
-      }
+        distanciaApartirDoSol: '57,910,000',
+        diametro: '4,879',
+      },
     ],
-    terrentype: "Deserto"
+    terrentype: "Deserto",
   },
-  venus = {
-    name: "Vênus",
-    description: "O segundo planeta mais próximo do Sol",
+  {
+    name: "Venus",
+    ptName: "Vênus",
+    description: "Vênus é o segundo planeta mais próximo do Sol. É conhecido por sua atmosfera densa composta principalmente de dióxido de carbono, que causa um efeito estufa descontrolado. Vênus tem uma pressão atmosférica extremamente alta e temperaturas superficiais extremas, chegando a mais de 450 °C. Além disso, é o único planeta do sistema solar a ser nomeado após uma deusa feminina.",
     distances: [
       {
-        distanciaApartirdaTerra: 41400000,
+        distanciaApartirdaTerra: '41,400,000',
         tempoDeViagem: "1 mês",
-        distanciaApartirDoSol: 108200000,
-        diametro: 12104,
-      }
+        distanciaApartirDoSol: '108,200,000',
+        diametro: '12,104',
+      },
     ],
-    terrentype: "Terreno vulcânico"
+    terrentype: "Terreno vulcânico",
   },
-  sol = {
+  {
     name: "Sol",
     description: "Nossa estrela central",
     distances: [
@@ -111,22 +114,22 @@ export const planets = [
         distanciaApartirdaTerra: "",
         tempoDeViagem: "",
         distanciaApartirDoSol: "",
-        diametro: 1392700,
-      }
+        diametro: '1,392,700',
+      },
     ],
-    terrentype: "N/A (estrela)"
+    terrentype: "N/A (estrela)",
   },
-  lua = {
+  {
     name: "Lua",
     description: "Nosso satélite natural",
     distances: [
       {
-        distanciaApartirdaTerra: 384400,
+        distanciaApartirdaTerra: '384,400',
         tempoDeViagem: "3 dias",
-        distanciaApartirDoSol: 149600000,
-        diametro: 3474,
-      }
+        distanciaApartirDoSol: '149,600,000',
+        diametro: '3,474',
+      },
     ],
-    terrentype: "Deserto, crateras"
+    terrentype: "Deserto, crateras",
   },
 ];

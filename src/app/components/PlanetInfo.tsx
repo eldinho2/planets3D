@@ -36,7 +36,7 @@ type PlanetComponents = {
 
 export const PlanetInfo = ({ planet }: PlanetInfoProps) => {
   const planetFormated = planet.split("/").join("");
- 
+  
   const planetComponents: PlanetComponents = {
     mercurio: <Mercurio />,
     venus: <Venus />,
@@ -50,11 +50,7 @@ export const PlanetInfo = ({ planet }: PlanetInfoProps) => {
   };
   
   const Planet = planetComponents[planetFormated];
-
-  console.log(Planet);
-  
-  
-  
+  const planetData = planets.find((planetData) => planetData.name === planetFormated.charAt(0).toUpperCase() + planetFormated.slice(1));  
   
   return (
     <InfoPlanets>
@@ -62,8 +58,10 @@ export const PlanetInfo = ({ planet }: PlanetInfoProps) => {
       <div>
         <PlanetSelector />
         <InfoArea
-          name={planet}
-          description={planet}
+          name={planetData?.ptName ? planetData?.ptName : planetData?.name}
+          description={planetData?.description}
+          distances={planetData?.distances}
+          terrentype={planetData?.terrentype}
         />
       </div>
     </InfoPlanets>

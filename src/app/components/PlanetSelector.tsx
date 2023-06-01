@@ -3,6 +3,9 @@ import styled from "styled-components";
 import Link from "next/link";
 
 const PlanetSelectorWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   ul {
     display: flex;
     list-style: none;

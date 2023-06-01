@@ -1,8 +1,7 @@
 'use client';
 
 import PlanetInfo from "../components/PlanetInfo";
-import React, { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import React from "react";
 
 export default function Home() {
   
