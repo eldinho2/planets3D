@@ -27,8 +27,7 @@ const InfoAreaWrapper = styled.div`
     justify-content: center;
     margin-left: 2rem;
     background: transparent;
-    max-width: 60rem;
-    width: 60rem;
+    width: 40rem;
   }
 
   h1 {

@@ -98,7 +98,7 @@ export const Sol = () => {
   }
 
   return (
-    <Canvas camera={{ position: [5, 2, 5], fov: 60 }} className={"canvas"}>
+    <Canvas camera={{ position: [4, 1, 4], fov: 60 }} className={"canvas"}>
     <Suspense fallback={<Loader />}>
     <CameraControls truck={false} ref={cameraControlsRef} />
       <ambientLight intensity={1.2} />
