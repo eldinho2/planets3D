@@ -154,7 +154,7 @@ export const Urano = () => {
       <Suspense fallback={<Loader />}>
         <RotatingObject />
         <ambientLight intensity={2.2} />
-        <CameraControls ref={cameraControlsRef} />
+        <CameraControls truck={false} ref={cameraControlsRef} />
       </Suspense>
   </Canvas>
   )
