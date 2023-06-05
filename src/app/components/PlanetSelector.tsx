@@ -6,11 +6,19 @@ const PlanetSelectorWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  top: 20px;
+
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
   ul {
     display: flex;
     list-style: none;
     gap: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 200;
     margin: 0px 24px;
   }

@@ -20,12 +20,15 @@ const InfoAreaWrapper = styled.div`
   margin-top: 1.5rem;
   flex-direction: column;
 
+  @media (max-width: 768px) {
+    display: none;
+  }
+
   div {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-left: 2rem;
     background: transparent;
     width: 40rem;
   }
@@ -49,8 +52,11 @@ const InfoDistance = styled.div`
     flex-direction: column;
     align-items: center;
     flex-direction: row;
-    margin-top: 1rem;
     max-width: 50rem;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 
   div {

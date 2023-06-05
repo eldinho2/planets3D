@@ -29,7 +29,11 @@ export const InfoPlanets = styled.div`
   background-image: url("https://varotti.vteximg.com.br/arquivos/ids/172671-1000-1000/35590_MDF-Preto-Trama-Duratex_6mm.jpg?v=637149455215770000");
   background-repeat: no-repeat;
   background-size: cover;
-`;
+
+    media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+  `;
 
 type PlanetComponents = {
   [key: string]: JSX.Element;
