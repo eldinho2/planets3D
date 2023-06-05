@@ -109,7 +109,7 @@ export const Saturno = () => {
       <Suspense fallback={<Loader />}>
         <RotatingObject />
         <ambientLight intensity={0.15} />
-        <CameraControls ref={cameraControlsRef} />
+        <CameraControls truck={false} ref={cameraControlsRef} />
       </Suspense>
     </Canvas>
   );

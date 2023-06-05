@@ -96,7 +96,7 @@ export const Lua = () => {
   return (
     <Canvas camera={{ position: [2, 1.1, 2], fov: 60 }} className={"canvas"}>
       <Suspense fallback={<Loader />}>
-        <CameraControls autoRotate ref={cameraControlsRef} />
+        <CameraControls truck={false} autoRotate ref={cameraControlsRef} />
         <ambientLight intensity={0.2} />
         <RotatingObject />
       </Suspense>

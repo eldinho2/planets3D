@@ -96,7 +96,7 @@ export const Venus = () => {
   return (
     <Canvas camera={{ position: [2, -1, 2], fov: 60 }} className={"canvas"}>
     <Suspense fallback={<Loader />}>
-      <CameraControls ref={cameraControlsRef} />
+      <CameraControls truck={false} ref={cameraControlsRef} />
       <ambientLight intensity={0.5} />
       <RotatingObject />
     </Suspense>

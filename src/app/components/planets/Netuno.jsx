@@ -121,7 +121,7 @@ export const Netuno = () => {
   return (
     <Canvas camera={{ position: [100, 1, 100], fov: 60 }} className={"canvas"}>
     <Suspense fallback={<Loader />}>
-      <CameraControls ref={cameraControlsRef} />
+      <CameraControls truck={false} ref={cameraControlsRef} />
       <ambientLight intensity={3.2} />
       <RotatingObject />
     </Suspense>

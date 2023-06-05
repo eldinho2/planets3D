@@ -109,7 +109,7 @@ export const Terra = () => {
     <Canvas camera={{ position: [30, 7, 10], fov: 60 }} className={"canvas"}>
       <Suspense fallback={<Loader />}>
         <RotatingObject />
-        <CameraControls ref={cameraControlsRef} />
+        <CameraControls truck={false} ref={cameraControlsRef} />
       </Suspense>
     </Canvas>
   );

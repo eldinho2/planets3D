@@ -96,7 +96,7 @@ export const Mercurio = () => {
   return (
     <Canvas camera={{ position: [170, 80, 170], fov: 60 }} className={"canvas"}>
     <Suspense fallback={<Loader />}>
-    <CameraControls autoRotate ref={cameraControlsRef} />
+    <CameraControls truck={false} autoRotate ref={cameraControlsRef} />
       <ambientLight intensity={0.2} />
       <RotatingObject />
     </Suspense>

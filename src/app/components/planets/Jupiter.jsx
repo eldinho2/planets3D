@@ -97,7 +97,7 @@ export const Jupiter = () => {
     <Suspense fallback={<Loader />}>
       <RotatingObject />
       <ambientLight intensity={0.5} />
-      <CameraControls ref={cameraControlsRef} />
+      <CameraControls truck={false} ref={cameraControlsRef} />
     </Suspense>
   </Canvas>
   )
