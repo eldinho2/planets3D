@@ -54,6 +54,10 @@ const InfoDistance = styled.div`
     max-width: 50rem;
   }
 
+  div {
+    text-align: center;
+  }
+
   .distances div h2 {
     font-size: 1rem;
   }
@@ -72,11 +76,11 @@ function InfoArea({ name, description, distances, terrentype }: InfoProps) {
           <div className="distances" key={index}>
               <div>
                 <h2>Distancia Media a partir da Terra</h2>
-                <p>{distance.distanciaApartirdaTerra ? distance.distanciaApartirdaTerra : 'N/A'}</p>
+                <p>{distance.distanciaApartirdaTerra ? distance.distanciaApartirdaTerra : 'N/A'} KM</p>
               </div>
               <div>
                 <h2>Distancia Media a partir do Sol</h2>
-                <p>{distance.distanciaApartirDoSol ? distance.distanciaApartirDoSol : 'N/A'}</p>
+                <p>{distance.distanciaApartirDoSol ? distance.distanciaApartirDoSol : 'N/A'} KM</p>
               </div>
               <div>
                 <h2>Tempo de Viagem</h2>
@@ -84,7 +88,7 @@ function InfoArea({ name, description, distances, terrentype }: InfoProps) {
               </div>
               <div>
                 <h2>Diametro</h2>
-                <p>{distance.diametro ? distance.diametro : 'N/A'}</p>
+                <p>{distance.diametro ? distance.diametro : 'N/A'} KM</p>
               </div>
               <div>
                 <h2>Tipo de Terreno</h2>

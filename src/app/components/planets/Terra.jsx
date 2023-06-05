@@ -5,16 +5,33 @@ license: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 source: https://sketchfab.com/3d-models/earth-globe-98d2b04d46474bafb4250cc75dc583b3
 title: Earth Globe 🌍
 */
-import React, { Suspense } from "react";
+import React, { useRef, Suspense, useState } from "react";
 import {
-  OrbitControls,
+  CameraControls,
   Center,
-  Sparkles,
+  Stars,
   useProgress,
   Html,
 } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
+import styled from "styled-components";
+
+const RecentralizeButton = styled.div`
+span {
+  position: relative;
+  top: 280px;
+  left: 119px;
+  border: 1px solid grey;
+  padding: 5px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+`;
 
 function Loader() {
   const { progress } = useProgress();
@@ -50,21 +67,49 @@ const TerraModel = (props) => {
 };
 
 export const Terra = () => {
-  return(
-    <Canvas camera={{ position: [30, 10, 10], fov: 60 }} className={"canvas"}>
-      <Suspense fallback={<Loader />}>
-        <OrbitControls
-          enableRotate={true}
-          enablePan={false}
-          enableZoom={false}
-          autoRotate
-          autoRotateSpeed={0.3}
+
+  const cameraControlsRef = useRef();
+
+  const handleRecentralize = () => {
+    cameraControlsRef.current?.reset(true);
+  };
+
+  function RotatingObject() {
+    const meshRef = useRef();
+    const [rotation, setRotation] = useState(0);
+
+    useFrame(() => {
+      setRotation((prevRotation) => prevRotation + 0.0005);
+      meshRef.current.rotation.y = rotation;
+    });
+
+    return (
+      <mesh ref={meshRef}>
+        <Stars
+          radius={100}
+          depth={50}
+          count={5000}
+          factor={4}
+          saturation={0}
+          fade={true}
         />
-        <Sparkles count={5000} scale={1111 * 2} size={1} speed={0.4}>
-          <Center>
-            <TerraModel />
-          </Center>
-        </Sparkles>
+        <Html>
+          <RecentralizeButton onClick={handleRecentralize}>
+            <span>Recentralizar</span>
+          </RecentralizeButton>
+        </Html>
+        <Center>
+          <TerraModel />
+        </Center>
+      </mesh>
+    );
+  }
+
+  return(
+    <Canvas camera={{ position: [30, 7, 10], fov: 60 }} className={"canvas"}>
+      <Suspense fallback={<Loader />}>
+        <RotatingObject />
+        <CameraControls ref={cameraControlsRef} />
       </Suspense>
     </Canvas>
   );

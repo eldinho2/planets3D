@@ -6,16 +6,33 @@ License: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 Source: https://sketchfab.com/3d-models/jupiter-free-downloadable-model-61671f29ca0a4fa39dc9653290282418
 Title: Jupiter - Free Downloadable Model
 */
-import React, { useRef, Suspense } from "react";
+import React, { useRef, Suspense, useState } from "react";
 import {
-  OrbitControls,
+  CameraControls,
   Center,
-  Sparkles,
+  Stars,
   useProgress,
   Html,
 } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
+import styled from "styled-components";
+
+const RecentralizeButton = styled.div`
+span {
+  position: relative;
+  top: 280px;
+  left: 119px;
+  border: 1px solid grey;
+  padding: 5px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+`;
 
 function Loader() {
   const { progress } = useProgress();
@@ -37,20 +54,50 @@ const JupiterModel = (props) => {
 }
 
 export const Jupiter = () => {
+
+  const cameraControlsRef = useRef();
+
+  const handleRecentralize = () => {
+    cameraControlsRef.current?.reset(true);
+  };
+
+  function RotatingObject() {
+    const meshRef = useRef();
+    const [rotation, setRotation] = useState(0);
+
+    useFrame(() => {
+      setRotation((prevRotation) => prevRotation + 0.0005);
+      meshRef.current.rotation.y = rotation;
+    });
+
+    return (
+      <mesh ref={meshRef}>
+        <Stars
+          radius={100}
+          depth={50}
+          count={5000}
+          factor={4}
+          saturation={0}
+          fade={true}
+        />
+        <Html>
+          <RecentralizeButton onClick={handleRecentralize}>
+            <span>Recentralizar</span>
+          </RecentralizeButton>
+        </Html>
+        <Center>
+          <JupiterModel />
+        </Center>
+      </mesh>
+    );
+  }
+
   return (
     <Canvas camera={{ position: [3.5, -0.3, 3.5], fov: 60 }} className={"canvas"}>
     <Suspense fallback={<Loader />}>
-      <OrbitControls
-        enableRotate={true}
-        enablePan={true}
-        enableZoom={true}
-        autoRotate
-        autoRotateSpeed={0.3}
-      />
-      <ambientLight intensity={0.2} />
-      <Sparkles count={5000} scale={1111 * 2} size={1} speed={0.4}>
-          <JupiterModel />
-      </Sparkles>
+      <RotatingObject />
+      <ambientLight intensity={0.5} />
+      <CameraControls ref={cameraControlsRef} />
     </Suspense>
   </Canvas>
   )
