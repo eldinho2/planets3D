@@ -9,11 +9,6 @@ const PlanetSelectorWrapper = styled.div`
   position: fixed;
   top: 20px;
 
-
-  @media (max-width: 768px) {
-    display: none;
-  }
-
   ul {
     display: flex;
     list-style: none;
@@ -58,6 +53,15 @@ const PlanetSelectorWrapper = styled.div`
       background-color: transparent;
       transform: scaleX(0);
       transition: transform 0.3s ease-in-out;
+    }
+  }
+
+  @media (max-width: 768px) {
+    top: 160px;
+    left: 50%;
+    ul {
+      gap: 0.5rem;
+      font-size: 0.5rem;
     }
   }
 `;

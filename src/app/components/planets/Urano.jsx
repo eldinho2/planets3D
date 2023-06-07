@@ -30,6 +30,10 @@ span {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   cursor: pointer;
+  
+  @media (max-width: 768px) {
+    left: 10px;
+  }
 }
 `;
 
@@ -150,7 +154,7 @@ export const Urano = () => {
   }
 
   return (
-    <Canvas camera={{ position: [1, 1, 1], fov: 60 }} className={"canvas"}>
+    <Canvas camera={{ position: [1, 1, 1], fov: 60 }}>
       <Suspense fallback={<Loader />}>
         <RotatingObject />
         <ambientLight intensity={2.2} />

@@ -30,6 +30,10 @@ span {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   cursor: pointer;
+  
+  @media (max-width: 768px) {
+    left: 10px;
+  }
 }
 `;
 
@@ -119,7 +123,7 @@ export const Netuno = () => {
   }
 
   return (
-    <Canvas camera={{ position: [20, 1, 20], fov: 60 }} className={"canvas"}>
+    <Canvas camera={{ position: [20, 1, 20], fov: 60 }} >
     <Suspense fallback={<Loader />}>
       <CameraControls truck={false} minDistance={10} maxDistance={60} ref={cameraControlsRef} />
       <ambientLight intensity={3.2} />

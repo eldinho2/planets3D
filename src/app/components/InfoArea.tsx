@@ -20,10 +20,6 @@ const InfoAreaWrapper = styled.div`
   margin-top: 1.5rem;
   flex-direction: column;
 
-  @media (max-width: 768px) {
-    display: none;
-  }
-
   div {
     display: flex;
     flex-direction: column;
@@ -44,6 +40,20 @@ const InfoAreaWrapper = styled.div`
     max-width: 30rem;
     margin-bottom: 2rem;
   }
+
+  @media (max-width: 768px) {
+    margin-top: 0px;
+    h1 {
+      font-size: 3rem;
+      margin-top: 1rem;
+    }
+
+    .description {
+      color: #a1a4b7;
+      max-width: 100vmin;
+      font-size: 1rem;
+    }
+  }
 `;
 
 const InfoDistance = styled.div`
@@ -56,10 +66,6 @@ const InfoDistance = styled.div`
     padding: 1rem;
   }
 
-  @media (max-width: 768px) {
-    display: none;
-  }
-
   div {
     text-align: center;
   }
@@ -70,6 +76,22 @@ const InfoDistance = styled.div`
 
 
   border-top: 1px solid #a1a4b7;
+
+  @media (max-width: 768px) {
+    max-width: 20rem;
+
+    .distances {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      max-width: 20rem;
+    }
+
+    .distances div h2 {
+      font-size: 0.8rem;
+    }
+  }
 `;
 
 function InfoArea({ name, description, distances, terrentype }: InfoProps) {

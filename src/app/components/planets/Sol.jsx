@@ -30,6 +30,10 @@ span {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   cursor: pointer;
+  
+  @media (max-width: 768px) {
+    left: 10px;
+  }
 }
 `;
 
@@ -98,7 +102,7 @@ export const Sol = () => {
   }
 
   return (
-    <Canvas camera={{ position: [4, 1, 4], fov: 60 }} className={"canvas"}>
+    <Canvas camera={{ position: [4, 1, 4], fov: 60 }} >
     <Suspense fallback={<Loader />}>
     <CameraControls truck={false} minDistance={3} maxDistance={20} ref={cameraControlsRef} />
       <ambientLight intensity={1.2} />

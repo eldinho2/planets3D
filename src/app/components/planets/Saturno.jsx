@@ -30,6 +30,10 @@ span {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   cursor: pointer;
+  
+  @media (max-width: 768px) {
+    left: 10px;
+  }
 }
 `;
 
@@ -105,7 +109,7 @@ export const Saturno = () => {
   }
 
   return (
-    <Canvas camera={{ position: [1.4, 1, 1.4], fov: 60 }} className={"canvas"}>
+    <Canvas camera={{ position: [1.4, 1, 1.4], fov: 60 }} >
       <Suspense fallback={<Loader />}>
         <RotatingObject />
         <ambientLight intensity={0.15} />

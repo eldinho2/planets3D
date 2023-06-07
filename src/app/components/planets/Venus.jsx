@@ -31,6 +31,10 @@ span {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   cursor: pointer;
+  
+  @media (max-width: 768px) {
+    left: 10px;
+  }
 }
 `;
 
@@ -94,7 +98,7 @@ export const Venus = () => {
   }
 
   return (
-    <Canvas camera={{ position: [2, 0, 2], fov: 60 }} className={"canvas"}>
+    <Canvas camera={{ position: [2, 0, 2], fov: 60 }} >
     <Suspense fallback={<Loader />}>
       <CameraControls truck={false} minDistance={1.5} maxDistance={10} ref={cameraControlsRef} />
       <ambientLight intensity={0.5} />

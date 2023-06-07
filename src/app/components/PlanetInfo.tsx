@@ -30,10 +30,12 @@ export const InfoPlanets = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
 
-    media screen and (max-width: 768px) {
+    @media (max-width: 768px) {
       flex-direction: column;
+      height: 100%;
+      width: 100%;
     }
-  `;
+`;
 
 type PlanetComponents = {
   [key: string]: JSX.Element;

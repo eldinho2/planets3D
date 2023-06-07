@@ -31,6 +31,10 @@ span {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   cursor: pointer;
+  
+  @media (max-width: 768px) {
+    left: 10px;
+  }
 }
 `;
 
@@ -101,7 +105,7 @@ export const Marte = () => {
   }
 
   return (
-    <Canvas camera={{ position: [5, 2, 5], fov: 60 }} className={"canvas"}>
+    <Canvas camera={{ position: [5, 2, 5], fov: 60 }} >
     <Suspense fallback={<Loader />}>
       <RotatingObject />
       <ambientLight intensity={0.5} />

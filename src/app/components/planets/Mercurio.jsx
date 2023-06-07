@@ -30,6 +30,10 @@ span {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   cursor: pointer;
+  
+  @media (max-width: 768px) {
+    left: 10px;
+  }
 }
 `;
 
@@ -94,7 +98,7 @@ export const Mercurio = () => {
   }
 
   return (
-    <Canvas camera={{ position: [3, 1, 3], fov: 60 }} className={"canvas"}>
+    <Canvas camera={{ position: [3, 1, 3], fov: 60 }} >
     <Suspense fallback={<Loader />}>
     <CameraControls truck={false} minDistance={2} maxDistance={15} autoRotate ref={cameraControlsRef} />
       <ambientLight intensity={0.2} />

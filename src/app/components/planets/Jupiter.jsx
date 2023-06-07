@@ -31,6 +31,10 @@ span {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   cursor: pointer;
+  
+  @media (max-width: 768px) {
+    left: 10px;
+  }
 }
 `;
 
@@ -93,7 +97,7 @@ export const Jupiter = () => {
   }
 
   return (
-    <Canvas camera={{ position: [3.5, -0.3, 3.5], fov: 60 }} className={"canvas"}>
+    <Canvas camera={{ position: [3.5, -0.3, 3.5], fov: 60 }} >
     <Suspense fallback={<Loader />}>
       <RotatingObject />
       <ambientLight intensity={0.5} />

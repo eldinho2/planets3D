@@ -30,6 +30,10 @@ span {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   cursor: pointer;
+  
+  @media (max-width: 768px) {
+    left: 10px;
+  }
 }
 `;
 
@@ -106,7 +110,7 @@ export const Terra = () => {
   }
 
   return(
-    <Canvas camera={{ position: [1, 0.10, 1], fov: 60 }} className={"canvas"}>
+    <Canvas camera={{ position: [1, 0.10, 1], fov: 60 }} >
       <Suspense fallback={<Loader />}>
         <RotatingObject />
         <CameraControls truck={false} minDistance={1} maxDistance={10} ref={cameraControlsRef} />

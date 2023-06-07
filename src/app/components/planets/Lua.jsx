@@ -31,6 +31,14 @@ span {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+    font-size: 10px;
+    top: 0px;
+    left: 10px;
+  }
 }
 `;
 
@@ -94,7 +102,7 @@ export const Lua = () => {
   }
 
   return (
-    <Canvas camera={{ position: [2, 1.1, 2], fov: 60 }} className={"canvas"}>
+    <Canvas camera={{ position: [2, 1.1, 2], fov: 60 }}>
       <Suspense fallback={<Loader />}>
         <CameraControls truck={false} minDistance={1.5} maxDistance={15} autoRotate ref={cameraControlsRef} />
         <ambientLight intensity={0.2} />
