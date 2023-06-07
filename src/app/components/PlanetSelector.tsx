@@ -57,8 +57,9 @@ const PlanetSelectorWrapper = styled.div`
   }
 
   @media (max-width: 768px) {
-    top: 160px;
-    left: 50%;
+    position: relative;
+    top: 11px;
+    left: 0px;
     ul {
       gap: 0.5rem;
       font-size: 0.5rem;

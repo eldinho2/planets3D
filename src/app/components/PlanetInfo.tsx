@@ -32,7 +32,7 @@ export const InfoPlanets = styled.div`
 
     @media (max-width: 768px) {
       flex-direction: column;
-      height: 100%;
+      height: 100vh;
       width: 100%;
     }
 `;

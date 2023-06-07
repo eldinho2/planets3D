@@ -50,7 +50,7 @@ const InfoAreaWrapper = styled.div`
 
     .description {
       color: #a1a4b7;
-      max-width: 100vmin;
+      max-width: 300px;
       font-size: 1rem;
     }
   }
