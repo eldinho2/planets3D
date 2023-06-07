@@ -100,7 +100,7 @@ export const Sol = () => {
   return (
     <Canvas camera={{ position: [4, 1, 4], fov: 60 }} className={"canvas"}>
     <Suspense fallback={<Loader />}>
-    <CameraControls truck={false} ref={cameraControlsRef} />
+    <CameraControls truck={false} minDistance={3} maxDistance={20} ref={cameraControlsRef} />
       <ambientLight intensity={1.2} />
       <RotatingObject />
     </Suspense>

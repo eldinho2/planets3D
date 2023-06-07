@@ -41,7 +41,7 @@ function Loader() {
 const UranoModel = (props) => {
   const { nodes, materials } = useGLTF("/uranodraco.gltf");
   return (
-    <group scale={0.1} {...props} dispose={null}>
+    <group scale={0.001} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <group rotation={[-1.7, 0, 0]}>
@@ -150,13 +150,13 @@ export const Urano = () => {
   }
 
   return (
-    <Canvas camera={{ position: [100, 2, 100], fov: 60 }} className={"canvas"}>
+    <Canvas camera={{ position: [1, 1, 1], fov: 60 }} className={"canvas"}>
       <Suspense fallback={<Loader />}>
         <RotatingObject />
         <ambientLight intensity={2.2} />
-        <CameraControls truck={false} ref={cameraControlsRef} />
+        <CameraControls truck={false} minDistance={0.40} maxDistance={10} ref={cameraControlsRef} />
       </Suspense>
-  </Canvas>
+    </Canvas>
   )
 }
 

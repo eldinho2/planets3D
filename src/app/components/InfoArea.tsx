@@ -53,6 +53,7 @@ const InfoDistance = styled.div`
     align-items: center;
     flex-direction: row;
     max-width: 50rem;
+    padding: 1rem;
   }
 
   @media (max-width: 768px) {

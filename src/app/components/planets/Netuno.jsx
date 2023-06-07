@@ -42,7 +42,7 @@ const NetunoModel = (props) => {
   const group = useRef();
   const { nodes, materials } = useGLTF("/neptuneglb.glb");
   return (
-    <group scale={0.1} ref={group} {...props} dispose={null}>
+    <group scale={0.01} ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
           <group name="NeptuneFBX" rotation={[Math.PI / 2, 0, 0]}>
@@ -119,9 +119,9 @@ export const Netuno = () => {
   }
 
   return (
-    <Canvas camera={{ position: [100, 1, 100], fov: 60 }} className={"canvas"}>
+    <Canvas camera={{ position: [20, 1, 20], fov: 60 }} className={"canvas"}>
     <Suspense fallback={<Loader />}>
-      <CameraControls truck={false} ref={cameraControlsRef} />
+      <CameraControls truck={false} minDistance={10} maxDistance={60} ref={cameraControlsRef} />
       <ambientLight intensity={3.2} />
       <RotatingObject />
     </Suspense>

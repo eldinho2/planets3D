@@ -41,7 +41,7 @@ function Loader() {
 const  MercurioModel = (props) => {
   const { nodes, materials } = useGLTF("/mercurio.glb");
   return (
-    <group {...props} dispose={null}>
+    <group scale={0.01} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <mesh
           castShadow
@@ -94,9 +94,9 @@ export const Mercurio = () => {
   }
 
   return (
-    <Canvas camera={{ position: [170, 80, 170], fov: 60 }} className={"canvas"}>
+    <Canvas camera={{ position: [3, 1, 3], fov: 60 }} className={"canvas"}>
     <Suspense fallback={<Loader />}>
-    <CameraControls truck={false} autoRotate ref={cameraControlsRef} />
+    <CameraControls truck={false} minDistance={2} maxDistance={15} autoRotate ref={cameraControlsRef} />
       <ambientLight intensity={0.2} />
       <RotatingObject />
     </Suspense>

@@ -40,7 +40,7 @@ function Loader() {
 const TerraModel = (props) => {
   const { nodes, materials } = useGLTF("/terra-transformed.glb");
   return (
-    <group {...props} dispose={null}>
+    <group scale={0.05} {...props} dispose={null}>
       <mesh
         receiveShadow={true}
         geometry={nodes.meshNode_Material_u2_v1_0.geometry}
@@ -106,10 +106,10 @@ export const Terra = () => {
   }
 
   return(
-    <Canvas camera={{ position: [30, 7, 10], fov: 60 }} className={"canvas"}>
+    <Canvas camera={{ position: [1, 0.10, 1], fov: 60 }} className={"canvas"}>
       <Suspense fallback={<Loader />}>
         <RotatingObject />
-        <CameraControls truck={false} ref={cameraControlsRef} />
+        <CameraControls truck={false} minDistance={1} maxDistance={10} ref={cameraControlsRef} />
       </Suspense>
     </Canvas>
   );
