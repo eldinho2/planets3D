@@ -33,7 +33,9 @@ span {
   cursor: pointer;
   
   @media (max-width: 768px) {
-    left: 10px;
+        font-size: 10px;
+    top: 71px;
+    left: 64px;
   }
 }
 `;
@@ -98,6 +100,7 @@ export const Venus = () => {
   }
 
   return (
+    <div className="container">
     <Canvas camera={{ position: [2, 0, 2], fov: 60 }} >
     <Suspense fallback={<Loader />}>
       <CameraControls truck={false} minDistance={1.5} maxDistance={10} ref={cameraControlsRef} />
@@ -105,6 +108,7 @@ export const Venus = () => {
       <RotatingObject />
     </Suspense>
   </Canvas>
+  </div>
   )
 }
 

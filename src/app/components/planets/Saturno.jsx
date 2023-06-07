@@ -32,7 +32,9 @@ span {
   cursor: pointer;
   
   @media (max-width: 768px) {
-    left: 10px;
+        font-size: 10px;
+    top: 71px;
+    left: 64px;
   }
 }
 `;
@@ -109,6 +111,7 @@ export const Saturno = () => {
   }
 
   return (
+    <div className="container">
     <Canvas camera={{ position: [1.4, 1, 1.4], fov: 60 }} >
       <Suspense fallback={<Loader />}>
         <RotatingObject />
@@ -116,6 +119,7 @@ export const Saturno = () => {
         <CameraControls truck={false} minDistance={1} maxDistance={10} ref={cameraControlsRef} />
       </Suspense>
     </Canvas>
+    </div>
   );
 };
 

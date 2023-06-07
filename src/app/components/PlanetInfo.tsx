@@ -25,15 +25,27 @@ export const InfoPlanets = styled.div`
   color: white;
   height: 100vh;
   width: 100vw;
-  flex: 1;
   background-image: url("https://varotti.vteximg.com.br/arquivos/ids/172671-1000-1000/35590_MDF-Preto-Trama-Duratex_6mm.jpg?v=637149455215770000");
   background-repeat: no-repeat;
   background-size: cover;
 
+  .infos {
+    width: 100%;
+  }
+
+  .container {
+    height: 100%;
+    width: 100vw;
+  }
+
     @media (max-width: 768px) {
       flex-direction: column;
-      height: 100vh;
-      width: 100%;
+      height: 100%;
+      
+      .container {
+        width: 100%;
+        height: 200px;
+      }
     }
 `;
 
@@ -63,8 +75,8 @@ export const PlanetInfo = ({ planet }: PlanetInfoProps) => {
   
   return (
     <InfoPlanets>
-      {Planet}
-      <div>
+      {Planet}  
+      <div className="infos">
         <PlanetSelector />
         <InfoArea
           name={planetData?.ptName ? planetData?.ptName : planetData?.name}

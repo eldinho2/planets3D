@@ -37,7 +37,9 @@ span {
     height: 50px;
     font-size: 10px;
     top: 0px;
-    left: 10px;
+        font-size: 10px;
+    top: 71px;
+    left: 64px;
   }
 }
 `;
@@ -102,6 +104,7 @@ export const Lua = () => {
   }
 
   return (
+    <div className="container">
     <Canvas camera={{ position: [2, 1.1, 2], fov: 60 }}>
       <Suspense fallback={<Loader />}>
         <CameraControls truck={false} minDistance={1.5} maxDistance={15} autoRotate ref={cameraControlsRef} />
@@ -109,6 +112,7 @@ export const Lua = () => {
         <RotatingObject />
       </Suspense>
     </Canvas>
+    </div>
   );
 };
 

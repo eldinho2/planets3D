@@ -33,7 +33,9 @@ span {
   cursor: pointer;
   
   @media (max-width: 768px) {
-    left: 10px;
+        font-size: 10px;
+    top: 71px;
+    left: 64px;
   }
 }
 `;
@@ -97,6 +99,7 @@ export const Jupiter = () => {
   }
 
   return (
+    <div className="container">
     <Canvas camera={{ position: [3.5, -0.3, 3.5], fov: 60 }} >
     <Suspense fallback={<Loader />}>
       <RotatingObject />
@@ -104,6 +107,7 @@ export const Jupiter = () => {
       <CameraControls truck={false} minDistance={3} maxDistance={20} ref={cameraControlsRef} />
     </Suspense>
   </Canvas>
+  </div>
   )
 }
 

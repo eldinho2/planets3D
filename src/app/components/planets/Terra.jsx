@@ -32,7 +32,9 @@ span {
   cursor: pointer;
   
   @media (max-width: 768px) {
-    left: 10px;
+    font-size: 10px;
+    top: 71px;
+    left: 64px;
   }
 }
 `;
@@ -110,12 +112,14 @@ export const Terra = () => {
   }
 
   return(
-    <Canvas camera={{ position: [1, 0.10, 1], fov: 60 }} >
+    <div className="container">
+    <Canvas camera={{ position: [1, 0.10, 1], fov: 60 }}>
       <Suspense fallback={<Loader />}>
         <RotatingObject />
         <CameraControls truck={false} minDistance={1} maxDistance={10} ref={cameraControlsRef} />
       </Suspense>
     </Canvas>
+    </div>
   );
 };
 

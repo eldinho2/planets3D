@@ -32,7 +32,9 @@ span {
   cursor: pointer;
   
   @media (max-width: 768px) {
-    left: 10px;
+        font-size: 10px;
+    top: 71px;
+    left: 64px;
   }
 }
 `;
@@ -98,6 +100,7 @@ export const Mercurio = () => {
   }
 
   return (
+    <div className="container">
     <Canvas camera={{ position: [3, 1, 3], fov: 60 }} >
     <Suspense fallback={<Loader />}>
     <CameraControls truck={false} minDistance={2} maxDistance={15} autoRotate ref={cameraControlsRef} />
@@ -105,6 +108,7 @@ export const Mercurio = () => {
       <RotatingObject />
     </Suspense>
   </Canvas>
+  </div>
   )
 }
 

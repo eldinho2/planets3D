@@ -32,7 +32,9 @@ span {
   cursor: pointer;
   
   @media (max-width: 768px) {
-    left: 10px;
+        font-size: 10px;
+    top: 71px;
+    left: 64px;
   }
 }
 `;
@@ -123,6 +125,7 @@ export const Netuno = () => {
   }
 
   return (
+    <div className="container">
     <Canvas camera={{ position: [20, 1, 20], fov: 60 }} >
     <Suspense fallback={<Loader />}>
       <CameraControls truck={false} minDistance={10} maxDistance={60} ref={cameraControlsRef} />
@@ -130,6 +133,7 @@ export const Netuno = () => {
       <RotatingObject />
     </Suspense>
   </Canvas>
+  </div>
   )
 }
 

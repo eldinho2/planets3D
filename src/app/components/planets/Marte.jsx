@@ -33,7 +33,9 @@ span {
   cursor: pointer;
   
   @media (max-width: 768px) {
-    left: 10px;
+        font-size: 10px;
+    top: 71px;
+    left: 64px;
   }
 }
 `;
@@ -105,6 +107,7 @@ export const Marte = () => {
   }
 
   return (
+    <div className="container">
     <Canvas camera={{ position: [5, 2, 5], fov: 60 }} >
     <Suspense fallback={<Loader />}>
       <RotatingObject />
@@ -112,6 +115,7 @@ export const Marte = () => {
       <CameraControls truck={false} minDistance={4} maxDistance={30} ref={cameraControlsRef} />
     </Suspense>
   </Canvas>
+  </div>
   )
 }
 

@@ -41,19 +41,18 @@ const InfoAreaWrapper = styled.div`
     margin-bottom: 2rem;
   }
 
-  @media (max-width: 768px) {
-    margin-top: 0px;
-    h1 {
-      font-size: 3rem;
-      margin-top: 1rem;
-    }
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 3rem;
+        margin-top: 1rem;
+      }
 
-    .description {
-      color: #a1a4b7;
-      max-width: 300px;
-      font-size: 1rem;
+      .description {
+        color: #a1a4b7;
+        max-width: 300px;
+        font-size: 1rem;
+      }
     }
-  }
 `;
 
 const InfoDistance = styled.div`
@@ -78,7 +77,7 @@ const InfoDistance = styled.div`
   border-top: 1px solid #a1a4b7;
 
   @media (max-width: 768px) {
-    max-width: 20rem;
+    max-width: 15rem;
 
     .distances {
       display: flex;
@@ -86,6 +85,10 @@ const InfoDistance = styled.div`
       align-items: center;
       gap: 1rem;
       max-width: 20rem;
+    }
+
+    div {
+      width: 100%;
     }
 
     .distances div h2 {

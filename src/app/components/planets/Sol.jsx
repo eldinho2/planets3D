@@ -32,7 +32,9 @@ span {
   cursor: pointer;
   
   @media (max-width: 768px) {
-    left: 10px;
+    font-size: 10px;
+    top: 71px;
+    left: 64px;
   }
 }
 `;
@@ -102,13 +104,15 @@ export const Sol = () => {
   }
 
   return (
-    <Canvas camera={{ position: [4, 1, 4], fov: 60 }} >
-    <Suspense fallback={<Loader />}>
-    <CameraControls truck={false} minDistance={3} maxDistance={20} ref={cameraControlsRef} />
-      <ambientLight intensity={1.2} />
-      <RotatingObject />
-    </Suspense>
-  </Canvas>
+    <div className="container">
+      <Canvas camera={{ position: [4, 1, 4], fov: 60 }} >
+        <Suspense fallback={<Loader />}>
+        <CameraControls truck={false} minDistance={3} maxDistance={20} ref={cameraControlsRef} />
+          <ambientLight intensity={1.2} />
+          <RotatingObject />
+        </Suspense>
+      </Canvas>
+   </div>
   )
 }
 
