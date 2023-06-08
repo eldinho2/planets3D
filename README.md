@@ -4,7 +4,7 @@
 É uma experiência interativa única que permite explorar os planetas do nosso sistema solar de uma forma envolvente. e com informações sobre cada planeta.
 
 <p align="center">
-  <img src="/planets3d.png" alt="Captura de tela do E-commerce" width="100%">
+  <img src="/public/planets3d.png" alt="Captura de tela do E-commerce" width="100%">
 </p>
 
 ## Recursos 📝
