@@ -15,29 +15,8 @@ import {
 } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
-import styled from "styled-components";
+import { Button } from "@/app/components/Button";
 
-const RecentralizeButton = styled.div`
-span {
-  position: relative;
-  top: 280px;
-  left: 119px;
-  border: 1px solid grey;
-  padding: 5px;
-  background-color: black;
-  color: white;
-  font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  cursor: pointer;
-  
-  @media (max-width: 768px) {
-    font-size: 10px;
-    top: 71px;
-    left: 64px;
-  }
-}
-`;
 
 function Loader() {
   const { progress } = useProgress();
@@ -73,12 +52,25 @@ const TerraModel = (props) => {
 };
 
 export const Terra = () => {
+  const [isfull, setFull] = useState(false);
+  const container = useRef();
 
   const cameraControlsRef = useRef();
 
   const handleRecentralize = () => {
     cameraControlsRef.current?.reset(true);
   };
+
+  const handleFullScreen = () => {
+    if (!isfull) {
+      container.current.requestFullscreen();
+      container.current.requestPointerLock();
+      setFull(true);
+    } else {
+      document.exitFullscreen();
+      setFull(false);
+    }
+  }
 
   function RotatingObject() {
     const meshRef = useRef();
@@ -100,9 +92,12 @@ export const Terra = () => {
           fade={true}
         />
         <Html>
-          <RecentralizeButton onClick={handleRecentralize}>
+          <Button onClick={handleRecentralize}>
             <span>Recentralizar</span>
-          </RecentralizeButton>
+          </Button>
+          <Button onClick={handleFullScreen}>
+            <span>Tela inteira</span>
+          </Button>
         </Html>
         <Center>
           <TerraModel />
@@ -113,7 +108,7 @@ export const Terra = () => {
 
   return(
     <div className="container">
-    <Canvas camera={{ position: [1, 0.10, 1], fov: 60 }}>
+    <Canvas ref={container} camera={{ position: [1, 0.10, 1], fov: 60 }}>
       <Suspense fallback={<Loader />}>
         <RotatingObject />
         <CameraControls truck={false} minDistance={1} maxDistance={10} ref={cameraControlsRef} />
