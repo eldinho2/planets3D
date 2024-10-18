@@ -16,6 +16,7 @@ import {
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import { Button } from "@/app/components/Button";
+import { DrawerDemo } from '../InfoAreaDrawer'
 
 
 function Loader() {
@@ -43,29 +44,17 @@ const SolModel = (props) => {
   );
 }
 
-export const Sol = () => {
+export const Sol = ({recentralized}) => {
 
-  const [isfull, setFull] = useState(false);
   const container = useRef();
 
   const cameraControlsRef = useRef();
 
-  const handleRecentralize = () => {
+  if (recentralized) {
     cameraControlsRef.current?.reset(true);
-  };
-
-  const handleFullScreen = () => {
-    if (!isfull) {
-      container.current.requestFullscreen();
-      container.current.requestPointerLock();
-      setFull(true);
-    } else {
-      document.exitFullscreen();
-      setFull(false);
-    }
   }
 
-  function RotatingObject() {
+  function RotatingObject({recentralized}) {
     const meshRef = useRef();
     const [rotation, setRotation] = useState(0);
 
@@ -73,6 +62,10 @@ export const Sol = () => {
       setRotation((prevRotation) => prevRotation + 0.0005);
       meshRef.current.rotation.y = rotation;
     });
+
+    if (recentralized) {
+      cameraControlsRef.current?.reset(true);
+    }
 
     return (
       <mesh ref={meshRef}>
@@ -84,14 +77,6 @@ export const Sol = () => {
           saturation={0}
           fade={true}
         />
-        <Html>
-          <Button onClick={handleRecentralize}>
-            <span>Recentralizar</span>
-          </Button>
-          <Button onClick={handleFullScreen}>
-            <span>Tela inteira</span>
-          </Button>
-        </Html>
         <Center>
           <SolModel />
         </Center>
@@ -100,7 +85,7 @@ export const Sol = () => {
   }
 
   return (
-    <div className="container">
+    <div className="h-screen w-screen">
       <Canvas ref={container} camera={{ position: [4, 1, 4], fov: 60 }} >
         <Suspense fallback={<Loader />}>
         <CameraControls truck={false} minDistance={3} maxDistance={20} ref={cameraControlsRef} />

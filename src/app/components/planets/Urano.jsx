@@ -16,6 +16,7 @@ import {
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import { Button } from "@/app/components/Button";
+import { DrawerDemo } from '../InfoAreaDrawer'
 
 function Loader() {
   const { progress } = useProgress();
@@ -94,26 +95,16 @@ const UranoModel = (props) => {
   );
 }
 
-export const Urano = () => {
-  const [isfull, setFull] = useState(false);
+export const Urano = ({recentralized}) => {
   const container = useRef();
 
   const cameraControlsRef = useRef();
 
-  const handleRecentralize = () => {
+  if (recentralized) {
     cameraControlsRef.current?.reset(true);
-  };
-
-  const handleFullScreen = () => {
-    if (!isfull) {
-      container.current.requestFullscreen();
-      container.current.requestPointerLock();
-      setFull(true);
-    } else {
-      document.exitFullscreen();
-      setFull(false);
-    }
   }
+
+
 
   function RotatingObject() {
     const meshRef = useRef();
@@ -134,14 +125,6 @@ export const Urano = () => {
           saturation={0}
           fade={true}
         />
-        <Html>
-          <Button onClick={handleRecentralize}>
-            <span>Recentralizar</span>
-          </Button>
-          <Button onClick={handleFullScreen}>
-            <span>Tela inteira</span>
-          </Button>
-        </Html>
         <Center>
           <UranoModel />
         </Center>
@@ -150,7 +133,7 @@ export const Urano = () => {
   }
 
   return (
-    <div className="container">
+    <div className="h-screen w-screen">
     <Canvas ref={container} camera={{ position: [1, 1, 1], fov: 60 }}>
       <Suspense fallback={<Loader />}>
         <RotatingObject />

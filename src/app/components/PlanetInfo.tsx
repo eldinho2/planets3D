@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import PlanetSelector from "./PlanetSelector";
 import InfoArea from "./InfoArea";
 import { Sol } from "./planets/Sol";
@@ -14,59 +13,40 @@ import { Netuno } from "./planets/Netuno";
 
 import { planets } from "@/app/data/planetInfos.js"
 
+import { PlanetInfoDrawer } from './InfoAreaDrawer';
+import { useState } from "react";
+import { Button } from "@/components/ui/button"
 interface PlanetInfoProps {
   planet: string;
 }
 
-export const InfoPlanets = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  height: 100vh;
-  width: 100vw;
-  background-image: url("https://varotti.vteximg.com.br/arquivos/ids/172671-1000-1000/35590_MDF-Preto-Trama-Duratex_6mm.jpg?v=637149455215770000");
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  .infos {
-    width: 100%;
-  }
-
-  .container {
-    height: 100%;
-    width: 100vw;
-  }
-
-    @media (max-width: 768px) {
-      flex-direction: column;
-      height: 100%;
-      
-      .container {
-        width: 100%;
-        height: 200px;
-      }
-    }
-`;
 
 type PlanetComponents = {
   [key: string]: JSX.Element;
 }
 
 export const PlanetInfo = ({ planet }: PlanetInfoProps) => {
+  const [recentralized, setRecentralized] = useState(false);
   const planetFormated = planet.split("/").join("");
 
+  const handleRecentralize = () => {
+    setRecentralized(true);
+    setTimeout(() => {
+      setRecentralized(false);
+    }, 10);
+  };
+
   const planetComponents: PlanetComponents = {
-    sol: <Sol />,
-    mercurio: <Mercurio />,
-    venus: <Venus />,
-    terra: <Terra />,
-    lua: <Lua />,
-    marte: <Marte />,
-    jupiter: <Jupiter />,
-    saturno: <Saturno />,
-    urano: <Urano />,
-    netuno: <Netuno />,
+    sol: <Sol recentralized={recentralized} />,
+    mercurio: <Mercurio recentralized={recentralized} />,
+    venus: <Venus recentralized={recentralized} />,
+    terra: <Terra recentralized={recentralized} />,
+    lua: <Lua recentralized={recentralized} />,
+    marte: <Marte recentralized={recentralized} />,
+    jupiter: <Jupiter recentralized={recentralized} />,
+    saturno: <Saturno recentralized={recentralized} />,
+    urano: <Urano recentralized={recentralized} />,
+    netuno: <Netuno recentralized={recentralized} />,
   };
   
   const Planet = planetComponents[planetFormated];
@@ -74,18 +54,19 @@ export const PlanetInfo = ({ planet }: PlanetInfoProps) => {
   
   
   return (
-    <InfoPlanets>
-      {Planet}  
-      <div className="infos">
-        <PlanetSelector />
-        <InfoArea
-          name={planetData?.ptName ? planetData?.ptName : planetData?.name}
-          description={planetData?.description}
-          distances={planetData?.distances}
-          terrentype={planetData?.terrentype}
-        />
-      </div>
-    </InfoPlanets>
+    <div className="h-screen sm:w-3/5">
+      {Planet}
+      <PlanetSelector />
+      <Button onClick={handleRecentralize} variant="outline" className="absolute bottom-20 right-5 z-10">
+          <span>Recentralizar</span>
+      </Button>
+      <PlanetInfoDrawer
+        name={planetData?.ptName ? planetData?.ptName : planetData?.name || ''}
+        description={planetData?.description || ''}
+        distances={planetData?.distances || []}
+        terrentype={planetData?.terrentype || ''}
+      />
+    </div>
   );
 };
 
