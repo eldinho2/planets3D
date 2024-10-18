@@ -47,18 +47,18 @@ export default function PlanetSelector() {
         align: "center",
         loop: true,
       }}
-      className="w-96 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl absolute top-4 left-0 right-0 mx-auto"
+      className="w-96 max-w-xs absolute top-4 left-0 right-0 mx-auto"
       setApi={setApi}
     >
-      <CarouselContent className="-ml-2 md:-ml-4 border-none">
+      <CarouselContent className="border-none">
         {planets.map((planet, index) => (
-          <CarouselItem key={planet.path} className="pl-2 md:pl-4 basis-1/3 md:basis-1/4 lg:basis-1/5">
+          <CarouselItem key={planet.path} className="basis-1/3">
             <Link href={planet.path} passHref>
             <div className="flex items-center justify-center">
 
             <Card className="w-16 h-16 bg-transparent border-none">
             <CardContent className="flex aspect-square items-center justify-center p-2">
-                  <span className={`text-lg text-white font-bold ${current === index ? 'text-primary' : 'text-foreground'}`}>
+                  <span className={`text-lg px-0 mx-0 text-white font-bold ${current === index ? 'text-primary' : 'text-foreground'}`}>
                     {planet.name}
                   </span>
                 </CardContent>

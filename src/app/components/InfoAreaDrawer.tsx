@@ -107,7 +107,7 @@ export function PlanetInfoDrawer({ name, description, distances, terrentype, uni
           <ChevronRightIcon className="ml-2 h-4 w-4" />
         </Button>
       </DrawerTrigger>
-      <DrawerContent className="flex justify-center items-center h-full w-[500px] overflow-hidden bg-transparent border-none z-10">
+      <DrawerContent className="flex justify-center items-center h-full w-[500px] overflow-hidden bg-transparent border-none z-10 sm:w-[350px]">
         <motion.div 
           className={`mx-auto w-full max-w-md p-6 ${planetColor} bg-opacity-10 border rounded-lg backdrop-blur-sm`}
           {...animation}
@@ -122,7 +122,7 @@ export function PlanetInfoDrawer({ name, description, distances, terrentype, uni
             {name}
           </motion.h1>
           <motion.p 
-            className="text-muted-foreground mb-6 text-center"
+            className="text-muted-foreground mb-6 text-center text-white"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
