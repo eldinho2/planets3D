@@ -47,7 +47,7 @@ export default function PlanetSelector() {
         align: "center",
         loop: true,
       }}
-      className="w-96 max-w-xs absolute top-4 left-0 right-0 mx-auto"
+      className="w-96 max-w-xs absolute top-4 left-0 right-0 mx-auto z-50"
       setApi={setApi}
     >
       <CarouselContent className="border-none">

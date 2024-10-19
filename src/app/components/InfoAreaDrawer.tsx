@@ -107,9 +107,9 @@ export function PlanetInfoDrawer({ name, description, distances, terrentype, uni
           <ChevronRightIcon className="ml-2 h-4 w-4" />
         </Button>
       </DrawerTrigger>
-      <DrawerContent className="flex justify-center items-center h-full w-[500px] overflow-hidden bg-transparent border-none z-10 sm:w-[350px]">
+      <DrawerContent className="flex justify-center items-center h-full w-[500px] overflow-hidden bg-transparent border-none z-10 sm:w-[300px] sm:pl-8 md:w-[400px] md:pl-4">
         <motion.div 
-          className={`mx-auto w-full max-w-md p-6 ${planetColor} bg-opacity-10 border rounded-lg backdrop-blur-sm`}
+          className={`mx-auto w-full max-w-md p-6 ${planetColor} bg-opacity-10 border rounded-lg backdrop-blur-sm sm:h-[600px] sm:overflow-y-scroll sm:overflow-x-hidden`}
           {...animation}
         >
           <motion.h1 
@@ -185,11 +185,11 @@ export function PlanetInfoDrawer({ name, description, distances, terrentype, uni
 function InfoCard({ icon, title, items }: { icon: React.ReactNode, title: string, items: { label: string, value: string }[] }) {
   return (
     <motion.div 
-      className="bg-secondary rounded-lg p-4 shadow-md"
+      className="bg-secondary rounded-lg p-4 shadow-md sm:flex sm:flex-col sm:items-center"
       whileHover={{ scale: 1.05 }}
       transition={{ type: "spring", stiffness: 300 }}
     >
-      <div className="flex items-center space-x-2 mb-2">
+      <div className="flex items-center space-x-2 mb-2 sm:flex-col">
         {icon}
         <h3 className="text-lg font-semibold text-primary">{title}</h3>
       </div>
