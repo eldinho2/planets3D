@@ -15,13 +15,12 @@ import {
 } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
-import { Button } from "@/app/components/Button";
-import { DrawerDemo } from '../InfoAreaDrawer'
 
-function Loader() {
-  const { progress } = useProgress();
-  return <Html center>{progress.toFixed(2)} % loaded</Html>;
-}
+import Loader from "../Loader";
+
+
+
+
 
 const UranoModel = (props) => {
   const { nodes, materials } = useGLTF("/uranodraco.gltf");
@@ -97,6 +96,7 @@ const UranoModel = (props) => {
 
 export const Urano = ({recentralized}) => {
   const container = useRef();
+  const { progress } = useProgress();
 
   const cameraControlsRef = useRef();
 
@@ -135,7 +135,7 @@ export const Urano = ({recentralized}) => {
   return (
     <div className="h-screen w-screen">
     <Canvas ref={container} camera={{ position: [1, 1, 1], fov: 60 }}>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<Loader progress={progress} />}>
         <RotatingObject />
         <ambientLight intensity={2.2} />
         <CameraControls truck={false} minDistance={0.40} maxDistance={10} ref={cameraControlsRef} />

@@ -16,13 +16,12 @@ import {
 } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
-import { Button } from "@/app/components/Button";
-import { DrawerDemo } from '../InfoAreaDrawer'
 
-function Loader() {
-  const { progress } = useProgress();
-  return <Html center>{progress.toFixed(2)} % loaded</Html>;
-}
+import Loader from "../Loader";
+
+
+
+
 
 const VenusModel = (props) => {
   const { nodes, materials } = useGLTF("/venus.glb");
@@ -42,6 +41,7 @@ const VenusModel = (props) => {
 
 export const Venus = ({recentralized}) => {
   const container = useRef();
+  const { progress } = useProgress();
 
   const cameraControlsRef = useRef();
 
@@ -80,7 +80,7 @@ export const Venus = ({recentralized}) => {
   return (
     <div className="h-screen w-screen">
     <Canvas ref={container} camera={{ position: [2, 0, 2], fov: 60 }} >
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={<Loader progress={progress} />}>
       <CameraControls truck={false} minDistance={1.5} maxDistance={10} ref={cameraControlsRef} />
       <ambientLight intensity={0.5} />
       <RotatingObject />

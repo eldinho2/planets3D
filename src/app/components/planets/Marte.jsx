@@ -16,14 +16,9 @@ import {
 } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
-import { Button } from "@/app/components/Button";
-import { DrawerDemo } from '../InfoAreaDrawer'
 
+import Loader from "../Loader";
 
-function Loader() {
-  const { progress } = useProgress();
-  return <Html center>{progress.toFixed(2)} % loaded</Html>;
-}
 
 const MarteModel = (props) => {
   const { nodes, materials } = useGLTF("/marte.glb");
@@ -48,6 +43,7 @@ const MarteModel = (props) => {
 }
 
 export const Marte = ({recentralized}) => {
+  const { progress } = useProgress();
 
   const container = useRef();
 
@@ -88,7 +84,7 @@ export const Marte = ({recentralized}) => {
   return (
     <div className="h-screen w-screen">
     <Canvas ref={container} camera={{ position: [5, 2, 5], fov: 60 }} >
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={<Loader progress={progress} />}>
       <RotatingObject />
       <ambientLight intensity={0.5} />
       <CameraControls truck={false} minDistance={4} maxDistance={30} ref={cameraControlsRef} />

@@ -15,14 +15,13 @@ import {
 } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
-import { Button } from "@/app/components/Button";
-import { DrawerDemo } from '../InfoAreaDrawer'
+
+import Loader from "../Loader";
 
 
-function Loader() {
-  const { progress } = useProgress();
-  return <Html center>{progress.toFixed(2)} % loaded</Html>;
-}
+
+
+
 
 const SaturnoModel = (props) => {
   const group = useRef();
@@ -52,6 +51,7 @@ const SaturnoModel = (props) => {
 };
 
 export const Saturno = ({recentralized}) => {
+  const { progress } = useProgress();
 
   const container = useRef();
 
@@ -92,7 +92,7 @@ export const Saturno = ({recentralized}) => {
   return (
     <div className="h-screen w-screen">
     <Canvas ref={container} camera={{ position: [1.4, 1, 1.4], fov: 60 }} >
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<Loader progress={progress} />}>
         <RotatingObject />
         <ambientLight intensity={0.15} />
         <CameraControls truck={false} minDistance={1} maxDistance={10} ref={cameraControlsRef} />

@@ -58,7 +58,7 @@ export default function PlanetSelector() {
 
             <Card className="w-16 h-16 bg-transparent border-none">
             <CardContent className="flex aspect-square items-center justify-center p-2">
-                  <span className={`text-lg px-0 mx-0 text-white font-bold ${current === index ? 'text-primary' : 'text-foreground'}`}>
+                  <span className={`text-lg px-0 mx-0 text-white font-bold ${current === index ? 'text-primary bg-primary px-2 rounded-md' : 'text-foreground'}`}>
                     {planet.name}
                   </span>
                 </CardContent>

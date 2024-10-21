@@ -15,13 +15,11 @@ import {
 } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
-import { Button } from "@/app/components/Button";
+
+import Loader from "../Loader";
 
 
-function Loader() {
-  const { progress } = useProgress();
-  return <Html center>{progress.toFixed(2)} % loaded</Html>;
-}
+
 const TerraModel = (props) => {
   const { nodes, materials } = useGLTF("/terra-transformed.glb");
   return (
@@ -53,6 +51,7 @@ const TerraModel = (props) => {
 
 export const Terra = ({recentralized}) => {  
   const container = useRef();
+  const { progress } = useProgress();
 
   const cameraControlsRef = useRef();
 
@@ -89,7 +88,7 @@ export const Terra = ({recentralized}) => {
   return(
     <div className="h-screen w-screen">
     <Canvas ref={container} camera={{ position: [1, 0.10, 1], fov: 60 }}>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<Loader progress={progress} />}>
         <RotatingObject />
         <CameraControls truck={false} minDistance={1} maxDistance={10} ref={cameraControlsRef} />
       </Suspense>

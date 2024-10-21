@@ -15,14 +15,13 @@ import {
 } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
-import { Button } from "@/app/components/Button";
-import { DrawerDemo } from '../InfoAreaDrawer'
+
+import Loader from "../Loader";
 
 
-function Loader() {
-  const { progress } = useProgress();
-  return <Html center>{progress.toFixed(2)} % loaded</Html>;
-}
+
+
+
 
 const NetunoModel = (props) => {
   const group = useRef();
@@ -66,6 +65,7 @@ const NetunoModel = (props) => {
 }
 
 export const Netuno = ({recentralized}) => {
+  const { progress } = useProgress();
 
   const [isfull, setFull] = useState(false);
   const container = useRef();
@@ -108,7 +108,7 @@ export const Netuno = ({recentralized}) => {
   return (
     <div className="h-screen w-screen">
     <Canvas ref={container} camera={{ position: [20, 1, 20], fov: 60 }} >
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={<Loader progress={progress} />}>
       <CameraControls truck={false} minDistance={10} maxDistance={60} ref={cameraControlsRef} />
       <ambientLight intensity={3.2} />
       <RotatingObject />

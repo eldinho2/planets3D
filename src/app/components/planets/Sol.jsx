@@ -15,14 +15,13 @@ import {
 } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
-import { Button } from "@/app/components/Button";
-import { DrawerDemo } from '../InfoAreaDrawer'
+
+import Loader from "../Loader";
 
 
-function Loader() {
-  const { progress } = useProgress();
-  return <Html center>{progress.toFixed(2)} % loaded</Html>;
-}
+
+
+
 
 const SolModel = (props) => {
   const { nodes, materials } = useGLTF("/sun.glb");
@@ -45,6 +44,7 @@ const SolModel = (props) => {
 }
 
 export const Sol = ({recentralized}) => {
+  const { progress } = useProgress();
 
   const container = useRef();
 
@@ -87,7 +87,7 @@ export const Sol = ({recentralized}) => {
   return (
     <div className="h-screen w-screen">
       <Canvas ref={container} camera={{ position: [4, 1, 4], fov: 60 }} >
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader progress={progress} />}>
         <CameraControls truck={false} minDistance={3} maxDistance={20} ref={cameraControlsRef} />
           <ambientLight intensity={1.2} />
           <RotatingObject />

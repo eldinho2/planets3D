@@ -16,14 +16,10 @@ import {
 } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
-import { Button } from "@/app/components/Button";
-import { DrawerDemo } from '../InfoAreaDrawer'
+
+import Loader from "../Loader";
 
 
-function Loader() {
-  const { progress } = useProgress();
-  return <Html center>{progress.toFixed(2)} % loaded</Html>;
-}
 
 const LuaModel = (props) => {
   const { nodes, materials } = useGLTF("luanew.glb");
@@ -43,6 +39,7 @@ const LuaModel = (props) => {
 
 export const Lua = ({recentralized}) => {
   const container = useRef();
+  const { progress } = useProgress();
 
   const cameraControlsRef = useRef();
 
@@ -82,7 +79,7 @@ export const Lua = ({recentralized}) => {
   return (
     <div className="h-screen w-screen">
     <Canvas ref={container} camera={{ position: [2, 1.1, 2], fov: 60 }}>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<Loader progress={progress} />}>
         <CameraControls truck={false} minDistance={1.5} maxDistance={15} autoRotate ref={cameraControlsRef} />
         <ambientLight intensity={0.2} />
         <RotatingObject />

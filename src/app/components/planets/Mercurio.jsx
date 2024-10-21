@@ -15,14 +15,13 @@ import {
 } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
-import { Button } from "@/app/components/Button";
-import { DrawerDemo } from '../InfoAreaDrawer'
+
+import Loader from "../Loader";
 
 
-function Loader() {
-  const { progress } = useProgress();
-  return <Html center>{progress.toFixed(2)} % loaded</Html>;
-}
+
+
+
 
 const  MercurioModel = (props) => {
   const { nodes, materials } = useGLTF("/mercurio.glb");
@@ -41,6 +40,7 @@ const  MercurioModel = (props) => {
 }
 
 export const Mercurio = ({recentralized}) => {
+  const { progress } = useProgress();
 
   const container = useRef();
 
@@ -82,7 +82,7 @@ export const Mercurio = ({recentralized}) => {
   return (
     <div className="h-screen w-screen">
     <Canvas ref={container} camera={{ position: [3, 1, 3], fov: 60 }} >
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={<Loader progress={progress} />}>
     <CameraControls truck={false} minDistance={2} maxDistance={15} autoRotate ref={cameraControlsRef} />
       <ambientLight intensity={0.2} />
       <RotatingObject />

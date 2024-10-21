@@ -16,15 +16,8 @@ import {
 } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
-import { Button } from "@/app/components/Button";
-import { DrawerDemo } from '../InfoAreaDrawer'
 
-
-function Loader() {
-  const { progress } = useProgress();
-  return <Html center>{progress.toFixed(2)} % loaded</Html>;
-}
-
+import Loader from "../Loader";
 
 const JupiterModel = (props) => {
   const group = useRef()
@@ -41,6 +34,7 @@ const JupiterModel = (props) => {
 
 export const Jupiter = ({recentralized}) => {
   const container = useRef();
+  const { progress } = useProgress();
 
   const cameraControlsRef = useRef();
 
@@ -79,7 +73,7 @@ export const Jupiter = ({recentralized}) => {
   return (
     <div className="h-screen w-screen">
     <Canvas ref={container} camera={{ position: [3.5, -0.3, 3.5], fov: 60 }} >
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={<Loader progress={progress} />}>
       <RotatingObject />
       <ambientLight intensity={0.5} />
       <CameraControls truck={false} minDistance={3} maxDistance={20} ref={cameraControlsRef} />
