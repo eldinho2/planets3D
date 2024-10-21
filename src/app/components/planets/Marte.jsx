@@ -87,7 +87,7 @@ export const Marte = ({recentralized}) => {
     <Suspense fallback={<Loader progress={progress} />}>
       <RotatingObject />
       <ambientLight intensity={0.5} />
-      <CameraControls truck={false} minDistance={4} maxDistance={30} ref={cameraControlsRef} />
+      <CameraControls  minDistance={4} maxDistance={30} ref={cameraControlsRef} />
     </Suspense>
   </Canvas>
   </div>

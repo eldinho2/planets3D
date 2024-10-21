@@ -138,7 +138,7 @@ export const Urano = ({recentralized}) => {
       <Suspense fallback={<Loader progress={progress} />}>
         <RotatingObject />
         <ambientLight intensity={2.2} />
-        <CameraControls truck={false} minDistance={0.40} maxDistance={10} ref={cameraControlsRef} />
+        <CameraControls  minDistance={0.40} maxDistance={10} ref={cameraControlsRef} />
       </Suspense>
     </Canvas>
     </div>

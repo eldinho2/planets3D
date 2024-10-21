@@ -90,7 +90,7 @@ export const Terra = ({recentralized}) => {
     <Canvas ref={container} camera={{ position: [1, 0.10, 1], fov: 60 }}>
       <Suspense fallback={<Loader progress={progress} />}>
         <RotatingObject />
-        <CameraControls truck={false} minDistance={1} maxDistance={10} ref={cameraControlsRef} />
+        <CameraControls  minDistance={1} maxDistance={10} ref={cameraControlsRef} />
       </Suspense>
     </Canvas>
     </div>

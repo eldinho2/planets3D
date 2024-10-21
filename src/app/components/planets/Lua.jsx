@@ -80,7 +80,7 @@ export const Lua = ({recentralized}) => {
     <div className="h-screen w-screen">
     <Canvas ref={container} camera={{ position: [2, 1.1, 2], fov: 60 }}>
       <Suspense fallback={<Loader progress={progress} />}>
-        <CameraControls truck={false} minDistance={1.5} maxDistance={15} autoRotate ref={cameraControlsRef} />
+        <CameraControls minDistance={1.5} maxDistance={15} autoRotate ref={cameraControlsRef} />
         <ambientLight intensity={0.2} />
         <RotatingObject />
       </Suspense>

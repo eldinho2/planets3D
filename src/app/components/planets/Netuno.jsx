@@ -109,7 +109,7 @@ export const Netuno = ({recentralized}) => {
     <div className="h-screen w-screen">
     <Canvas ref={container} camera={{ position: [20, 1, 20], fov: 60 }} >
     <Suspense fallback={<Loader progress={progress} />}>
-      <CameraControls truck={false} minDistance={10} maxDistance={60} ref={cameraControlsRef} />
+      <CameraControls  minDistance={10} maxDistance={60} ref={cameraControlsRef} />
       <ambientLight intensity={3.2} />
       <RotatingObject />
     </Suspense>

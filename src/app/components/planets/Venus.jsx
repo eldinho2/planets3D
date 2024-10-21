@@ -81,7 +81,7 @@ export const Venus = ({recentralized}) => {
     <div className="h-screen w-screen">
     <Canvas ref={container} camera={{ position: [2, 0, 2], fov: 60 }} >
     <Suspense fallback={<Loader progress={progress} />}>
-      <CameraControls truck={false} minDistance={1.5} maxDistance={10} ref={cameraControlsRef} />
+      <CameraControls  minDistance={1.5} maxDistance={10} ref={cameraControlsRef} />
       <ambientLight intensity={0.5} />
       <RotatingObject />
     </Suspense>

@@ -88,7 +88,7 @@ export const Sol = ({recentralized}) => {
     <div className="h-screen w-screen">
       <Canvas ref={container} camera={{ position: [4, 1, 4], fov: 60 }} >
         <Suspense fallback={<Loader progress={progress} />}>
-        <CameraControls truck={false} minDistance={3} maxDistance={20} ref={cameraControlsRef} />
+        <CameraControls  minDistance={3} maxDistance={20} ref={cameraControlsRef} />
           <ambientLight intensity={1.2} />
           <RotatingObject />
         </Suspense>

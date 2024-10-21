@@ -83,7 +83,7 @@ export const Mercurio = ({recentralized}) => {
     <div className="h-screen w-screen">
     <Canvas ref={container} camera={{ position: [3, 1, 3], fov: 60 }} >
     <Suspense fallback={<Loader progress={progress} />}>
-    <CameraControls truck={false} minDistance={2} maxDistance={15} autoRotate ref={cameraControlsRef} />
+    <CameraControls  minDistance={2} maxDistance={15} autoRotate ref={cameraControlsRef} />
       <ambientLight intensity={0.2} />
       <RotatingObject />
     </Suspense>
