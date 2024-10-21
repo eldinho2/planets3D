@@ -14,10 +14,10 @@ import { Card, CardContent } from "@/components/ui/card"
 import { type CarouselApi } from "@/components/ui/carousel"
 
 const planets = [
+  { name: "Terra", path: "/terra" },
   { name: "Sol", path: "/sol" },
   { name: "Mercúrio", path: "/mercurio" },
   { name: "Vênus", path: "/venus" },
-  { name: "Terra", path: "/" },
   { name: "Lua", path: "/lua" },
   { name: "Marte", path: "/marte" },
   { name: "Júpiter", path: "/jupiter" },

@@ -12,15 +12,19 @@ const barlow_Semi_Condensed = Barlow_Semi_Condensed({
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
+  const [hasLoaded, setHasLoaded] = useState(false);
 
   useEffect(() => {
-    const randomNum = Math.floor(Math.random() * 3) + 2; // Gera um número entre 2 e 4
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, randomNum * 1000);
+    if (!hasLoaded) {
+      const randomNum = Math.floor(Math.random() * 3) + 2;
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+        setHasLoaded(true);
+      }, randomNum * 1000);
 
-    return () => clearTimeout(timer);
-  }, []);
+      return () => clearTimeout(timer);
+    }
+  }, [hasLoaded]);
 
   if (isLoading) {
     return <MainLoading />;
@@ -28,7 +32,7 @@ export default function Home() {
 
   return (
     <div className={barlow_Semi_Condensed.className}>
-      <PlanetInfo planet={'terra'}/>
+      <PlanetInfo planet={'terra'} />
     </div>
   );
 }
