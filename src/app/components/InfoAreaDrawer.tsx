@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer"
 import { Button } from "@/components/ui/button"
 import { ChevronRightIcon, GlobeIcon, RulerIcon, ClockIcon, MountainIcon, ThermometerIcon, CloudIcon, WindIcon, AtomIcon } from "lucide-react"
+import { useEffect, useState } from "react"
 
 interface InfoProps {
   name: string
@@ -86,7 +87,26 @@ const planetAnimations = {
 }
 
 export function PlanetInfoDrawer({ name, description, distances, terrentype, uniqueFeature }: InfoProps) {
-  const [isOpen, setIsOpen] = React.useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const [drawerDirection, setDrawerDirection] = useState("left");
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setDrawerDirection("top");
+      } else {
+        setDrawerDirection("left");
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const planetColor = planetColors[name as keyof typeof planetColors] || "bg-gray-500"
   const animation = planetAnimations[name as keyof typeof planetAnimations] || {}
 
@@ -98,18 +118,17 @@ export function PlanetInfoDrawer({ name, description, distances, terrentype, uni
       default: return null
     }
   }
-
   return (
-    <Drawer direction="left" open={isOpen} onOpenChange={setIsOpen} modal={false}>
+    <Drawer direction={drawerDirection as "left" | "right" | "top" | "bottom"} open={isOpen} onOpenChange={setIsOpen} modal={false}>
       <DrawerTrigger asChild>
         <Button variant="outline" className="absolute bottom-4 right-4 z-50">
           <span>Ver Mais</span>
           <ChevronRightIcon className="ml-2 h-4 w-4" />
         </Button>
       </DrawerTrigger>
-      <DrawerContent className="flex justify-center items-center h-full w-[500px] overflow-hidden bg-transparent border-none z-10 sm:w-[300px] sm:pl-8 md:w-[400px] md:pl-4">
+      <DrawerContent className="flex justify-center items-center h-full w-[500px] overflow-hidden bg-transparent border-none z-10 sm:w-full sm:px-2 md:w-full md:pl-4">
         <motion.div 
-          className={`mx-auto w-full max-w-md p-6 ${planetColor} bg-opacity-10 border rounded-lg backdrop-blur-sm sm:h-[600px] sm:overflow-y-scroll sm:overflow-x-hidden`}
+          className={`mx-auto max-h-[800px] w-full max-w-md p-6 ${planetColor} bg-opacity-10 border rounded-lg backdrop-blur-sm overflow-y-scroll sm:h-[600px] sm:overflow-y-scroll sm:overflow-x-hidden`}
           {...animation}
         >
           <motion.h1 
