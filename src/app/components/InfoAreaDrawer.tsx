@@ -87,7 +87,7 @@ const planetAnimations = {
 }
 
 export function PlanetInfoDrawer({ name, description, distances, terrentype, uniqueFeature }: InfoProps) {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(true)
   const [drawerDirection, setDrawerDirection] = useState("left");
 
   useEffect(() => {
@@ -122,7 +122,7 @@ export function PlanetInfoDrawer({ name, description, distances, terrentype, uni
     <Drawer direction={drawerDirection as "left" | "right" | "top" | "bottom"} open={isOpen} onOpenChange={setIsOpen} modal={false}>
       <DrawerTrigger asChild>
         <Button variant="outline" className="absolute bottom-4 right-4 z-50">
-          <span>Ver Mais</span>
+          <span>{isOpen ? "Ver Menos" : "Ver Mais"}</span>
           <ChevronRightIcon className="ml-2 h-4 w-4" />
         </Button>
       </DrawerTrigger>
