@@ -32,7 +32,7 @@ export default function Home() {
 
   return (
     <div className={barlow_Semi_Condensed.className}>
-      <PlanetInfo planet={'terra'} />
+      <PlanetInfo planet={'sol'} />
     </div>
   );
 }

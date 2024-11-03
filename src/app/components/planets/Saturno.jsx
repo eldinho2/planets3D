@@ -5,7 +5,7 @@ license: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 source: https://sketchfab.com/3d-models/saturn-c09a1970148c43ad99db134a9d6d00b5
 title: Saturn
 */
-import React, { useRef, Suspense, useState } from "react";
+import React, { useRef, Suspense, useState, useEffect } from "react";
 import {
   CameraControls,
   Center,
@@ -15,13 +15,9 @@ import {
 } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
+import { usePathname } from "next/navigation";
 
 import Loader from "../Loader";
-
-
-
-
-
 
 const SaturnoModel = (props) => {
   const group = useRef();
@@ -60,6 +56,31 @@ export const Saturno = ({recentralized}) => {
   if (recentralized) {
     cameraControlsRef.current?.reset(true);
   }
+
+
+  const [audio] = useState(new Audio('SZA - Saturn (Sped Up).mp3'));
+  const planetUrl = usePathname()
+  console.log(planetUrl)
+
+  useEffect(() => {
+    console.log('URL atual:', planetUrl);
+
+    if (planetUrl !== '/saturno') {
+      audio.pause();
+      audio.currentTime = 0;
+      console.log('Saindo de Saturno');
+    } else {
+      audio.play().catch((error) => {
+        console.log('Erro ao tocar áudio:', error);
+      });
+      console.log('Entrando em Saturno');
+    }
+
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, [planetUrl, audio]);
 
 
 

@@ -19,6 +19,22 @@ import { useGLTF } from "@react-three/drei";
 import Loader from "../Loader";
 
 
+const LuaModel = (props) => {
+  const { nodes, materials } = useGLTF("luanew.glb");
+  return (
+    <group {...props} dispose={null}>
+      <group rotation={[-Math.PI / 2, 0, 0]}>
+        <group rotation={[Math.PI / 2, 0, 0]}>
+          <mesh
+            geometry={nodes.defaultMaterial.geometry}
+            material={materials.Material__50}
+          />
+        </group>
+      </group>
+    </group>
+  );
+};
+
 
 const TerraModel = (props) => {
   const { nodes, materials } = useGLTF("/terra-transformed.glb");
@@ -61,12 +77,17 @@ export const Terra = ({recentralized}) => {
 
   function RotatingObject() {
     const meshRef = useRef();
+    const luaRef = useRef();
+
     const [rotation, setRotation] = useState(0);
+    const [moonRotation, setmoonRotation] = useState(0);
+
 
     useFrame(() => {
       setRotation((prevRotation) => prevRotation + 0.0005);
       meshRef.current.rotation.y = rotation;
     });
+
 
     return (
       <mesh ref={meshRef}>
@@ -78,19 +99,25 @@ export const Terra = ({recentralized}) => {
           saturation={0}
           fade={true}
         />
-        <Center>
-          <TerraModel />
-        </Center>
+
+        <group>
+          <Center>
+          <TerraModel scale={[1, 1, 1]} position={[100, 0, 0]} />
+          </Center>
+          <LuaModel scale={[2, 2, 2]} position={[2, 1, 40]} />
+        </group>
+
       </mesh>
     );
   }
 
   return(
     <div className="h-screen w-screen">
-    <Canvas ref={container} camera={{ position: [1, 0.10, 1], fov: 60 }}>
+    <Canvas ref={container} camera={{ position: [30, 0.10, 1], fov: 60 }}>
       <Suspense fallback={<Loader progress={progress} />}>
         <RotatingObject />
-        <CameraControls  minDistance={1} maxDistance={10} ref={cameraControlsRef} />
+        <CameraControls  minDistance={20} maxDistance={200} ref={cameraControlsRef} />
+        <ambientLight intensity={0.2} />
       </Suspense>
     </Canvas>
     </div>

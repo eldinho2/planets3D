@@ -1,7 +1,7 @@
 export const planets = [
   {
     name: "Terra",
-    description: "A Terra é o terceiro planeta a partir do Sol e o único conhecido por abrigar vida. Possui uma atmosfera rica em nitrogênio e oxigênio. A Terra tem uma lua chamada Lua. É o único planeta onde são conhecidos mares, oceanos e vida abundante, incluindo uma grande variedade de seres vivos.",
+    description: "A Terra é o terceiro planeta a partir do Sol e o único conhecido por abrigar vida. Possui uma atmosfera rica em nitrogênio e oxigênio. A Terra tem um satélite natural chamado Lua. É o único planeta onde são conhecidos mares, oceanos e vida abundante, incluindo uma grande variedade de seres vivos.",
     distances: [
       {
         distanciaApartirdaTerra: "",
@@ -41,7 +41,7 @@ export const planets = [
   },
   {
     name: "Saturno",
-    description: "Saturno é o sexto planeta a partir do Sol, conhecido por seus anéis impressionantes. É um gigante gasoso com uma densidade média menor que a da água. Os anéis de Saturno são compostos principalmente de partículas de gelo e variam em tamanho, desde partículas microscópicas até pedaços maiores. Saturno também tem muitas luas, sendo a maior delas chamada Titã, que possui uma atmosfera densa.",
+    description: "Saturno é o sexto planeta a partir do Sol, conhecido por seus anéis impressionantes. É um gigante gasoso com uma densidade média menor que a da água. Os anéis de Saturno são compostos principalmente de partículas de gelo e variam em tamanho, desde partículas microscópicas até pedaços maiores. Saturno também tem muitas luas, sendo a maior delas chamada Titã, que possui uma atmosfera densa. O hexágono no polo norte de Saturno é uma estrutura atmosférica gigantesca e incomum, com cerca de 30.000 km de diâmetro – grande o suficiente para conter quatro Terras. Ele foi descoberto pela sonda Voyager nos anos 1980 e permanece um mistério, sendo mantido por ventos de até 320 km/h que circulam em um padrão estável e simétrico.",
     distances: [
       {
         distanciaApartirdaTerra: '1,275,000,000',
@@ -54,7 +54,7 @@ export const planets = [
   },
   {
     name: "Urano",
-    description: "Urano é o sétimo planeta a partir do Sol e é caracterizado por sua coloração azul-esverdeada. É um gigante gasoso com um conjunto de anéis e uma inclinação axial extrema. Urano é único no sistema solar por sua inclinação axial quase que deitada de lado, o que significa que seus polos são quase paralelos à órbita do planeta. Além disso, é o único planeta que foi nomeado com base em uma figura da mitologia grega, em vez da mitologia romana.",
+    description: "Urano é o sétimo planeta a partir do Sol e é caracterizado por sua coloração azul-esverdeada. É um gigante gasoso com um conjunto de anéis e uma inclinação axial extrema. Urano é único no sistema solar por sua inclinação axial quase que deitada de lado, o que significa que seus polos são quase paralelos à órbita do planeta. Além disso, é o único planeta que foi nomeado com base em uma figura da mitologia grega, em vez da mitologia romana. Cientistas descobriram que, em Urano e Netuno, por exemplo, há chuvas de diamante devido às condições atmosféricas.",
     distances: [
       {
         distanciaApartirdaTerra: '2,725,000,000',
@@ -67,7 +67,7 @@ export const planets = [
   },
 {
     name: "Netuno",
-    description: 'Netuno é o oitavo e último planeta a partir do Sol. É um gigante gasoso com uma atmosfera turbulenta e ventos extremamente fortes. Netuno é conhecido por sua cor azul profundo, que é resultado de metano em sua atmosfera. Ele possui a maior velocidade média de ventos em todo o sistema solar, chegando a até 2.100 km/h. Netuno também tem uma lua chamada Tritão, que é única por ter uma órbita retrógrada.',
+    description: 'Netuno é o oitavo e último planeta a partir do Sol. É um gigante gasoso com uma atmosfera turbulenta e ventos extremamente fortes. Netuno é conhecido por sua cor azul profundo, que é resultado de metano em sua atmosfera. Ele possui a maior velocidade média de ventos em todo o sistema solar, chegando a até 2.100 km/h. Netuno também tem uma lua chamada Tritão, que é única por ter uma órbita retrógrada. Cientistas descobriram que, em Urano e Netuno, por exemplo, há chuvas de diamante devido às condições atmosféricas.',
     distances: [
       {
         distanciaApartirdaTerra: '4,350,000,000',
@@ -111,8 +111,8 @@ export const planets = [
     description: "O Sol é uma estrela de tamanho médio localizada no centro do sistema solar. É uma gigantesca esfera de gás quente composta principalmente de hidrogênio e hélio. O Sol é uma das estrelas mais brilhantes do nosso céu. Sua temperatura na fotosfera é de cerca de 5.500 °C. No entanto, na coroa, a temperatura pode chegar a vários milhões de graus Celsius. O Sol possui várias camadas distintas. A parte visível é conhecida como fotosfera, e acima dela estão a cromosfera e a coroa solar. Reações nucleares: No núcleo do Sol, ocorrem reações nucleares de fusão, nas quais o hidrogênio é convertido em hélio. Essas reações liberam uma enorme quantidade de energia na forma de luz e calor.",
     distances: [
       {
-        distanciaApartirdaTerra: "",
-        tempoDeViagem: "",
+        distanciaApartirdaTerra: "149.600.000",
+        tempoDeViagem: "7,3 meses",
         distanciaApartirDoSol: "",
         diametro: '1,392,700',
       },

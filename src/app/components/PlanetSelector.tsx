@@ -14,11 +14,10 @@ import { Card, CardContent } from "@/components/ui/card"
 import { type CarouselApi } from "@/components/ui/carousel"
 
 const planets = [
-  { name: "Terra", path: "/terra" },
   { name: "Sol", path: "/sol" },
   { name: "Mercúrio", path: "/mercurio" },
   { name: "Vênus", path: "/venus" },
-  { name: "Lua", path: "/lua" },
+  { name: "Terra", path: "/terra" },
   { name: "Marte", path: "/marte" },
   { name: "Júpiter", path: "/jupiter" },
   { name: "Saturno", path: "/saturno" },
@@ -31,7 +30,14 @@ export default function PlanetSelector() {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
 
+  console.log(pathname);
+
+
   useEffect(() => {
+    if (pathname === '/lua') {
+      setCurrent(3)
+    }
+
     if (api) {
       const index = planets.findIndex(planet => planet.path === pathname)
       if (index !== -1) {

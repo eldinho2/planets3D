@@ -6,6 +6,7 @@ import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer"
 import { Button } from "@/components/ui/button"
 import { ChevronRightIcon, GlobeIcon, RulerIcon, ClockIcon, MountainIcon, ThermometerIcon, CloudIcon, WindIcon, AtomIcon } from "lucide-react"
 import { useEffect, useState } from "react"
+import Link from 'next/link'
 
 interface InfoProps {
   name: string
@@ -101,7 +102,7 @@ export function PlanetInfoDrawer({ name, description, distances, terrentype, uni
 
     handleResize();
     window.addEventListener("resize", handleResize);
-    
+
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -127,11 +128,11 @@ export function PlanetInfoDrawer({ name, description, distances, terrentype, uni
         </Button>
       </DrawerTrigger>
       <DrawerContent className="flex justify-center items-center h-full w-[500px] overflow-hidden bg-transparent border-none z-10 sm:w-full sm:px-2 md:w-full md:pl-4">
-        <motion.div 
+        <motion.div
           className={`mx-auto max-h-[800px] w-full max-w-md p-6 ${planetColor} bg-opacity-10 border rounded-lg backdrop-blur-sm overflow-y-scroll sm:h-[600px] sm:overflow-y-scroll sm:overflow-x-hidden`}
           {...animation}
         >
-          <motion.h1 
+          <motion.h1
             className="text-4xl font-bold mb-4 text-center text-white"
             style={{ color: planetColor.replace("bg-", "text-") }}
             initial={{ opacity: 0, y: -20 }}
@@ -140,7 +141,7 @@ export function PlanetInfoDrawer({ name, description, distances, terrentype, uni
           >
             {name}
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="text-muted-foreground mb-6 text-center text-white"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -148,7 +149,7 @@ export function PlanetInfoDrawer({ name, description, distances, terrentype, uni
           >
             {description}
           </motion.p>
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 md:grid-cols-2 gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -194,6 +195,18 @@ export function PlanetInfoDrawer({ name, description, distances, terrentype, uni
                 items={[{ label: "", value: uniqueFeature }]}
               />
             )}
+            {
+              name === 'Terra' && 
+              <Link href={'/lua'} >
+              <motion.div
+                className="flex items-center justify-center bg-secondary rounded-lg p-4 shadow-md sm:flex sm:flex-col sm:items-center"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >Lua
+              </motion.div>
+              </Link>
+
+            }
           </motion.div>
         </motion.div>
       </DrawerContent>
@@ -203,7 +216,7 @@ export function PlanetInfoDrawer({ name, description, distances, terrentype, uni
 
 function InfoCard({ icon, title, items }: { icon: React.ReactNode, title: string, items: { label: string, value: string }[] }) {
   return (
-    <motion.div 
+    <motion.div
       className="bg-secondary rounded-lg p-4 shadow-md sm:flex sm:flex-col sm:items-center"
       whileHover={{ scale: 1.05 }}
       transition={{ type: "spring", stiffness: 300 }}

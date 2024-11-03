@@ -37,6 +37,35 @@ const LuaModel = (props) => {
   );
 };
 
+const TerraModel = (props) => {
+  const { nodes, materials } = useGLTF("/terra-transformed.glb");
+  return (
+    <group scale={0.05} {...props} dispose={null}>
+      <mesh
+        receiveShadow={true}
+        geometry={nodes.meshNode_Material_u2_v1_0.geometry}
+        material={materials.Material_u2_v1}
+        position={[-5.18, -20.68, 0]}
+        rotation={[-Math.PI / 2, 0.46, Math.PI]}
+      />
+      <mesh
+        receiveShadow={true}
+        geometry={nodes.meshNode_Material_u1_v1_0.geometry}
+        material={materials.Material_u1_v1}
+        position={[-5.18, -20.68, 0]}
+        rotation={[-Math.PI / 2, 0.46, Math.PI]}
+      />
+      <mesh
+        receiveShadow={true}
+        geometry={nodes.meshNode_Material_u1_v2_0.geometry}
+        material={materials.Material_u1_v2}
+        position={[-5.18, -20.68, 0]}
+        rotation={[-Math.PI / 2, 0.46, Math.PI]}
+      />
+    </group>
+  );
+};
+
 export const Lua = ({recentralized}) => {
   const container = useRef();
   const { progress } = useProgress();
@@ -69,9 +98,13 @@ export const Lua = ({recentralized}) => {
           fade={true}
         />
 
+        <group>
         <Center>
           <LuaModel />
         </Center>
+        <TerraModel scale={[1, 1, 1]} position={[100, 0, 0]} />
+        </group>
+
       </mesh>
     );
   }
