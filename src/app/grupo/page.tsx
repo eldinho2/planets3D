@@ -47,7 +47,7 @@ export default function Grupo() {
               ${isLaunching ? 'animate-pulse' : ''}
               relative overflow-hidden
             `}
-            disabled={isLaunching}    
+            disabled={isLaunching}
           >
             {isLaunching ? 'Decolando!' : 'Viajar'}
             {isLaunching && (
@@ -59,45 +59,84 @@ export default function Grupo() {
         </main>
 
         <footer>
-          <p className="mb-2">PARTICIPANTES DO GRUPO: JULIA DE AGUIAR, MARIA EDUARDA RIBEIRO E SARA TEIXEIRA</p>
-          <div className="mt-4">
-            <h2 className="text-2xl font-bold mb-4">REFERÊNCIAS BIBLIOGRÁFICAS:</h2>
-            <ul className="text-sm space-y-2">
-              {[
-                { nome: "Sol", url: "https://pt.wikipedia.org/wiki/Sol" },
-                { nome: "Mercúrio (planeta)", url: "https://pt.wikipedia.org/wiki/Merc%C3%BArio_(planeta)" },
-                { nome: "Vênus (planeta)", url: "https://pt.wikipedia.org/wiki/V%C3%AAnus_(planeta)" },
-                { nome: "Terra", url: "https://pt.wikipedia.org/wiki/Terra" },
-                { nome: "Lua", url: "https://pt.wikipedia.org/wiki/Lua" },
-                { nome: "Marte (planeta)", url: "https://pt.wikipedia.org/wiki/Marte_(planeta)" },
-                { nome: "Júpiter (planeta)", url: "https://pt.wikipedia.org/wiki/J%C3%BApiter_(planeta)" },
-                { nome: "Saturno (planeta)", url: "https://pt.wikipedia.org/wiki/Saturno_(planeta)" },
-                { nome: "Urano (planeta)", url: "https://pt.wikipedia.org/wiki/Urano_(planeta)" },
-                { nome: "Netuno (planeta)", url: "https://pt.wikipedia.org/wiki/Netuno_(planeta)" },
-              ].map(({ nome, url }) => (
-                <li key={nome}>
-                  {nome}, In: Wikipédia, a enciclopédia livre, Disponível em:{" "}
-                  <a href={url} target="_blank" rel="noopener noreferrer">
-                    {url}
-                  </a>
-                  , Acesso em: 18 de outubro de 2024.
+          <p className="mb-2 text-center">PARTICIPANTES DO GRUPO: JULIA DE AGUIAR, MARIA EDUARDA RIBEIRO, SARA TEIXEIRA E CAMILA QUINTÃO</p>
+          <div className="mt-4 text-center">
+            <div>
+              <h2 className="text-2xl font-bold mb-4">REFERÊNCIAS BIBLIOGRÁFICAS:</h2>
+              <ul className="text-sm space-y-2">
+                {[
+                  { nome: "Sol", url: "https://pt.wikipedia.org/wiki/Sol" },
+                  { nome: "Mercúrio (planeta)", url: "https://pt.wikipedia.org/wiki/Merc%C3%BArio_(planeta)" },
+                  { nome: "Vênus (planeta)", url: "https://pt.wikipedia.org/wiki/V%C3%AAnus_(planeta)" },
+                  { nome: "Terra", url: "https://pt.wikipedia.org/wiki/Terra" },
+                  { nome: "Lua", url: "https://pt.wikipedia.org/wiki/Lua" },
+                  { nome: "Marte (planeta)", url: "https://pt.wikipedia.org/wiki/Marte_(planeta)" },
+                  { nome: "Júpiter (planeta)", url: "https://pt.wikipedia.org/wiki/J%C3%BApiter_(planeta)" },
+                  { nome: "Saturno (planeta)", url: "https://pt.wikipedia.org/wiki/Saturno_(planeta)" },
+                  { nome: "Urano (planeta)", url: "https://pt.wikipedia.org/wiki/Urano_(planeta)" },
+                  { nome: "Netuno (planeta)", url: "https://pt.wikipedia.org/wiki/Netuno_(planeta)" },
+                ].map(({ nome, url }) => (
+                  <li key={nome}>
+                    {nome}, In: Wikipédia, a enciclopédia livre, Disponível em:{" "}
+                    <a href={url} target="_blank" rel="noopener noreferrer">
+                      {url}
+                    </a>
+                    , Acesso em: 18 de outubro de 2024.
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold my-4 ">REFERÊNCIA DAS CURIOSIDADES: </h2>
+              <ul className="text-sm space-y-2">
+                <li>
+                  NASA. Solar System Exploration - The Sun. Disponível em: https://solarsystem.nasa.gov/solar-system/sun/overview/. Acesso em: 04 nov. 2024.
+
                 </li>
-              ))}
-            </ul>
+                <li>
+                  NASA. NASA's Cassini Sees Saturn's Mysterious Hexagon. Disponível em: https://www.nasa.gov/mission_pages/cassini/media/cassini-20071206.html. Acesso em: 04 nov. 2024.
+
+                </li>
+                <li>
+                  NATIONAL GEOGRAPHIC. More Trees Than Stars in Our Galaxy. Disponível em: https://www.nationalgeographic.com/science/article/more-trees-than-stars-in-galaxy. Acesso em: 04 nov. 2024.
+
+                </li>
+                <li>
+                  SPACE.COM. Neptune: The Mysterious Planet. Disponível em: https://www.space.com/48-neptune.html. Acesso em: 04 nov. 2024.
+
+                </li>
+                <li>
+                  NASA. Olympus Mons - Mars' Largest Volcano. Disponível em: https://mars.nasa.gov/learn/learn/olympus-mons-mars-largest-volcano/. Acesso em: 04 nov. 2024.
+
+                </li>
+                <li>
+                  NASA. Olympus Mons - Mars' Largest Volcano. Disponível em: https://mars.nasa.gov/learn/learn/olympus-mons-mars-largest-volcano/. Acesso em: 04 nov. 2024.
+
+                </li>
+                <li>
+                  SCIENCE NEWS. The Smell of Space: Fragrant Molecules Discovered. Disponível em: https://www.sciencenews.org/article/space-smell-fragrant-molecules-discovered. Acesso em: 04 nov. 2024.
+
+                </li>
+                <li>
+                  UNIVERSE TODAY. How Long Does It Take for Light from the Sun to Reach Earth? Disponível em: https://www.universetoday.com/19227/how-long-does-it-take-for-light-from-the-sun-to-reach-earth/. Acesso em: 04 nov. 2024.
+
+                </li>
+              </ul>
+            </div>
           </div>
         </footer>
 
         <div className="fixed top-4 left-4">
-          <img src="/groupPageCats/saturno.png?height=100&width=100" alt="Saturn" className="w-24 h-24 object-contain transform scale-x-[-1] sm:hidden md:hidden" />
+          <img src="/groupPageCats/saturno.png?height=100&width=100" alt="Saturn" className="w-56 h-56 object-contain transform scale-x-[-1] sm:hidden md:hidden" />
         </div>
         <div className="fixed bottom-4 left-4">
-          <img src="/groupPageCats/gatonauta.png" alt="Cat astronaut" className="w-36 h-36 sm:hidden md:hidden" />
+          <img src="/groupPageCats/gatonauta.png" alt="Cat astronaut" className="w-56 h-56 sm:hidden md:hidden" />
         </div>
         <div className="fixed top-4 right-4">
-          <img src="/groupPageCats/venus.png?height=100&width=100" alt="Mars or Venus" className="w-24 h-24 object-contain sm:hidden md:hidden" />
+          <img src="/groupPageCats/venus.png?height=100&width=100" alt="Mars or Venus" className="w-56 h-56 object-contain sm:hidden md:hidden" />
         </div>
         <div className="fixed bottom-4 right-4">
-          <img src="/groupPageCats/nautinha.png" alt="Cat looking at moon" className="w-36 h-36 sm:hidden md:hidden" />
+          <img src="/groupPageCats/nautinha.png" alt="Cat looking at moon" className="w-64 h-64 sm:hidden md:hidden" />
         </div>
       </div>
       <style jsx global>{`

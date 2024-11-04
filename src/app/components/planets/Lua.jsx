@@ -102,7 +102,7 @@ export const Lua = ({recentralized}) => {
         <Center>
           <LuaModel />
         </Center>
-        <TerraModel scale={[1, 1, 1]} position={[100, 0, 0]} />
+        <TerraModel scale={[2, 2, 2]} position={[100, 0, 0]} />
         </group>
 
       </mesh>
