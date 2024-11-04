@@ -94,7 +94,7 @@ export default function Grupo() {
 
                 </li>
                 <li>
-                  NASA. NASA's Cassini Sees Saturn's Mysterious Hexagon. Disponível em: https://www.nasa.gov/mission_pages/cassini/media/cassini-20071206.html. Acesso em: 04 nov. 2024.
+                  NASA. NASA s Cassini Sees Saturns Mysterious Hexagon. Disponível em: https://www.nasa.gov/mission_pages/cassini/media/cassini-20071206.html. Acesso em: 04 nov. 2024.
 
                 </li>
                 <li>
@@ -106,11 +106,11 @@ export default function Grupo() {
 
                 </li>
                 <li>
-                  NASA. Olympus Mons - Mars' Largest Volcano. Disponível em: https://mars.nasa.gov/learn/learn/olympus-mons-mars-largest-volcano/. Acesso em: 04 nov. 2024.
+                  NASA. Olympus Mons - Mars Largest Volcano. Disponível em: https://mars.nasa.gov/learn/learn/olympus-mons-mars-largest-volcano/. Acesso em: 04 nov. 2024.
 
                 </li>
                 <li>
-                  NASA. Olympus Mons - Mars' Largest Volcano. Disponível em: https://mars.nasa.gov/learn/learn/olympus-mons-mars-largest-volcano/. Acesso em: 04 nov. 2024.
+                  NASA. Olympus Mons - Mars Largest Volcano. Disponível em: https://mars.nasa.gov/learn/learn/olympus-mons-mars-largest-volcano/. Acesso em: 04 nov. 2024.
 
                 </li>
                 <li>
